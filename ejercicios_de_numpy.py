@@ -481,6 +481,7 @@ add_broadcast(arr1, arr2).__repr__()
 """2. Subtract a NumPy array of shape (3, 2) from a NumPy array of shape (2, 3)."""
 
 def subtract_broadcast(arr1, arr2):
+  arr2 = np.transpose(arr2)
   return np.subtract(arr1, arr2)
   '''(np.ndarray, np.ndarray) -> np.ndarray
   Regresa la resta de dos arreglos de numpy con formas (3, 2) y (2, 3).
@@ -502,6 +503,7 @@ subtract_broadcast(arr1, arr2).__repr__()
 """3. Multiply a NumPy array of shape (2, 3) by a NumPy array of shape (3, 2)."""
 
 def multiply_broadcast(arr1, arr2):
+  arr2 = np.transpose(arr2)
   return np.multiply(arr1, arr2)
   '''Multiplica dos arreglos de numpy con formas (2, 3) y (3, 2).
 
