@@ -524,7 +524,4 @@ def matrix_diagonals(matrix):
   '''
   assert matrix.shape == (5, 5), 'La matriz debe ser de 5x5'
   return (matrix.diagonal(), np.fliplr(matrix).diagonal())
-matrix_diagonals(np.arange(1, 26).reshape(5, 5))
-
-import doctest
-doctest.testmod()
+'''matrix_diagonals(np.arange(1, 26).reshape(5, 5))'''
