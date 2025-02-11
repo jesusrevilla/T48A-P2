@@ -434,7 +434,7 @@ def subtract_broadcast(arr1, arr2):
   arr2: numpy.ndarray
     arreglo de numpy de forma (2, 3).
   '''
-  return arr1 - arr2
+  return arr1 - arr2.T
 
 subtract_broadcast(np.array([[1, 2], [3, 4], [5, 6]]), np.array([[1, 2, 3], [4, 5, 6]]))
 
