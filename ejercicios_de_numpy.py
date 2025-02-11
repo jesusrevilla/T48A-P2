@@ -1,3 +1,4 @@
+# 173846
 # -*- coding: utf-8 -*-
 """Ejercicios de numpy.ipynb
 
@@ -10,8 +11,6 @@ Original file is located at
 
 ## Sigue las instrucciones para cada celda y al final baja la libreta en formato .py y subelo al repositorio que se te indique, no modifiques el nombre la de función, solo importa una vez numpy en el código.
 """
-
-#173846
 
 import numpy as np
 
@@ -561,8 +560,3 @@ def matrix_diagonals(matrix):
   return (matrix.diagonal(), np.fliplr(matrix).diagonal())
 
 matrix_diagonals(np.arange(1, 26).reshape(5, 5))
-
-"""# Test"""
-
-import doctest
-doctest.testmod()
