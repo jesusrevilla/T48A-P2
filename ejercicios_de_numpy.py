@@ -40,21 +40,22 @@ def rand_int():
 """2. Create a NumPy array of 5 random floating-point numbers between 0 and 1."""
 
 def rand_float():
-  '''Regresa un arreglo de numpy con 5 números punto flotante entre 0 y 1.
-  Para poder mantener la generación de números aleatorios
-  fija, en los ejemplos, se utiliza un seed.
+    '''Regresa un arreglo de numpy con 5 números punto flotante entre 0 y 1.
+    Para poder mantener la generación de números aleatorios
+    fija, en los ejemplos, se utiliza un seed.
 
-  Returns
-  -------
-  numpy.ndarray
-    Arreglo de numpy con 5 números punto flotante entre 0 y 1.
+    Returns
+    -------
+    numpy.ndarray
+        Arreglo de numpy con 5 números punto flotante entre 0 y 1.
 
-  Examples
-  --------
-  >>> np.random.seed(10)
-  >>> rand_float()
-  array([0.77132064, 0.02075195, 0.63364823, 0.74880388, 0.49850701])
-  '''
+    Examples
+    --------
+    >>> np.random.seed(10)
+    >>> rand_float()
+    array([0.77132064, 0.02075195, 0.63364823, 0.74880388, 0.49850701])
+    '''
+    return np.random.rand(5)
 
 
 """3. Create a NumPy array of the first 10 prime numbers."""
