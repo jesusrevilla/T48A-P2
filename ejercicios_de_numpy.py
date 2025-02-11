@@ -86,7 +86,7 @@ def first_10_primes():
 
   return np.array(primes)
 
-print(first_10_primes())
+first_10_primes().__repr__()
 
 """4. Create a NumPy array of the squares of the numbers from 1 to 10."""
 
@@ -540,7 +540,7 @@ def temp_data(temps):
   menores = np.sum(arr < 15)
   return mayores, menores
 
-print(temp_data(temps))
+temp_data(np.random.randint(0, 40, 30))
 
 """2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
 
@@ -588,7 +588,9 @@ def image_thresholding(image):
 image = np.random.randint(0, 256, (10, 10), dtype=np.uint8)
 
 # Aplicar la umbralización con threshold = 128
-binary_image = apply_threshold(image, 128)
+threshold = 128
+binary_image = image_thresholding(image)
+
 
 # Mostrar la imagen original y la binarizada
 fig, axs = plt.subplots(1, 2, figsize=(6, 3))
@@ -603,11 +605,10 @@ axs[1].axis("off")
 
 plt.show()
 
-"""### Fancy Indexing"""
+"""### Fancy Indexing
 
-
-
-"""1. Matrix Diagonals: Create a 5x5 matrix with values from 1 to 25.  Use fancy indexing to extract the elements on the main diagonal and the elements on the anti-diagonal."""
+1. Matrix Diagonals: Create a 5x5 matrix with values from 1 to 25.  Use fancy indexing to extract the elements on the main diagonal and the elements on the anti-diagonal.
+"""
 
 def matrix_diagonals(matrix):
   '''Regresa un tuple con los elementos de la diagonal principal y antidiagonal.
@@ -642,4 +643,3 @@ import doctest
 doctest.testmod()
 
 """#Text"""
-
