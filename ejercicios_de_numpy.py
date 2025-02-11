@@ -1,20 +1,12 @@
 import numpy as np
-
-"""### NumPy Arrays
-
-1. Create a NumPy array of 10 random integers between 0 and 100.
-"""
-
 def rand_int():
   '''Crea un arreglo de numpy con 10 enteros aleatorios entre 0 y 100.
   Para poder mantener la generación de números aleatorios
   fija, en los ejemplos, se utiliza un seed.
-
   Returns
   -------
   numpy.ndarray
     Arreglo de numpy con 10 enteros aleatorios entre 0 y 100.
-
   Examples
   --------
   >>> np.random.seed(10)
@@ -22,31 +14,10 @@ def rand_int():
   array([ 9, 15, 64, 28, 89, 93, 29,  8, 73,  0])
   '''
   return np.random.randint(0, 100, 10)
-
-
-
 """2. Create a NumPy array of 5 random floating-point numbers between 0 and 1."""
-
 def rand_float():
-  '''Regresa un arreglo de numpy con 5 números punto flotante entre 0 y 1.
-  Para poder mantener la generación de números aleatorios
-  fija, en los ejemplos, se utiliza un seed.
-
-  Returns
-  -------
-  numpy.ndarray
-    Arreglo de numpy con 5 números punto flotante entre 0 y 1.
-
-  Examples
-  --------
-  >>> np.random.seed(10)
-  >>> rand_float()
-  array([0.77132064, 0.02075195, 0.63364823, 0.74880388, 0.49850701])
-  '''
   return np.random.random(5)
-
 """3. Create a NumPy array of the first 10 prime numbers."""
-
 def first_10_primes():
     n = 0
     def is_prime(n):
@@ -62,18 +33,13 @@ def first_10_primes():
         n = n+1
         if is_prime(n):
             primos.append(n)
-
     return primos
-
 """4. Create a NumPy array of the squares of the numbers from 1 to 10."""
-
 def squares():
   '''Regresa un arreglo de numpy con los cuadrados de los números del 1 al 10.
   '''
   return np.arange(1, 11) ** 2
-
 """5. Create a NumPy array of the cubes of the numbers from 1 to 10."""
-
 def cubes():
   '''Regresa un arreglo de numpy con los cubos de los números del 1 al 10.
   '''
@@ -85,34 +51,6 @@ def cubes():
 """
 
 def add_arrays(arr1, arr2):
-  '''Regresa la suma de dos arreglos de numpy.
-
-  Returns
-  -------
-  numpy.ndarray
-    Suma de dos arreglos NumPy con el mismo tamaño.
-
-  Parameters
-  ----------
-  arr1: numpy.ndarray
-  arr2: numpy.ndarray
-
-  Precondition
-  ------------
-    - arr1.shape == arr2.shape
-
-  Examples
-  --------
-  >>> add_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
-  array([5, 7, 9])
-
-  >>> arr1 = np.array([1, 2, 3])
-  >>> arr2 = np.array([4, 5, 6])
-  >>> add_arrays(arr1, arr2)
-  array([5, 7, 9])
-  '''
-  if arr1.shape != arr2.shape:
-    return print('Los arreglos deben tener el mismo tamaño')
   arr1 = np.array(arr1)
   arr2 = np.array(arr2)
   arr3 = arr1 + arr2
@@ -157,23 +95,6 @@ def divide_arrays(arr1, arr2):
 """5. Create a NumPy array of the integer numbers from 1 to 5. Calculate the mean, median, and standard deviation."""
 
 def stats(arr):
-  '''Calcula la media, la mediana y la desviación estándar de un arreglo de numpy
-  en un tuple con las siguientes posiciones: (media, mediana, desviacion_std).
-
-  Returns
-  -------
-  tuple
-    Tuple con las siguientes posiciones: (media, mediana, desviacion_std).
-
-  Parameters
-  ----------
-  arr: numpy.ndarray
-    arreglo de numpy de los números de 1 a 5.
-
-  Precondition
-  ------------
-    - arr.size == 5
-  '''
   assert arr.size == 5, 'El arreglo debe tener 5 elementos'
   media = np.mean(arr)
   mediana = np.median(arr)
@@ -181,29 +102,8 @@ def stats(arr):
 
   return media, mediana, desviacion_std
 
-"""### NumPy Array Indexing and Slicing
-
-1. Create a NumPy array of 10 random integers between 0 and 100. Select the first 5 elements of the array.
-"""
-
 def first_5(arr):
-    '''Regresa los primeros 5 elementos de un arr (arreglo) que contiene 10 números
-    aleatorios enteros entre 1 y 100.
-
-    Parameters
-    ----------
-    arr: numpy.ndarray
-        Arreglo de numpy de 10 elementos con números aleatorios del 1 al 100.
-
-    Returns
-    -------
-    numpy.ndarray
-        Un arreglo con los primeros 5 elementos de arr.
-
-    Precondition
-    ------------
-        - arr.size == 10
-    '''
+    
     assert arr.size == 10, 'El arreglo debe tener 10 elementos'
 
     return arr[:5]  # Devuelve los primeros 5 elementos
