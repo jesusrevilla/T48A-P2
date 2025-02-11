@@ -635,7 +635,4 @@ def matrix_diagonals(matrix):
 
   return diagonal_principal, diagonal_antidiagonal
 
-"""# Test"""
 
-import doctest
-doctest.testmod()
