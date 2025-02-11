@@ -147,8 +147,8 @@ def subtract_arrays(arr1, arr2):
   return arr2 - arr1
 
 arr1 = np.array([1, 2, 3])
-  arr2 = np.array([4, 5, 6])
-  subtract_arrays(arr1, arr2).__repr__()
+arr2 = np.array([4, 5, 6])
+subtract_arrays(arr1, arr2).__repr__()
 
 """3. Multiply two NumPy arrays together (element-wise)."""
 
