@@ -377,7 +377,7 @@ def add_broadcast(arr1, arr2):
   '''
   assert arr1.shape == (2, 3), 'arr1 debe tener la forma (2,3)'
   assert arr2.shape == (2, 1), 'arr2 debe tener la forma (2,1)'
-  return arr1 + arr2  # Broadcasting automático
+  return arr1 + arr2.T
     
 """2. Subtract a NumPy array of shape (3, 2) from a NumPy array of shape (2, 3)."""
 
@@ -394,7 +394,7 @@ def subtract_broadcast(arr1, arr2):
   '''
   assert arr1.shape == (3, 2), 'arr1 debe tener la forma (3,2)'
   assert arr2.shape == (2, 3), 'arr2 debe tener la forma (2,3)'
-  return arr1 - arr2  # Broadcasting automático
+  return arr1 - arr2.T
 
 """3. Multiply a NumPy array of shape (2, 3) by a NumPy array of shape (3, 2)."""
 
@@ -410,7 +410,7 @@ def multiply_broadcast(arr1, arr2):
   '''
   assert arr1.shape == (2, 3), 'arr1 debe tener la forma (2,3)'
   assert arr2.shape == (3, 2), 'arr2 debe tener la forma (3,2)'
-  return arr1 * arr2  # Broadcasting automático
+  return arr1 * arr2.T
 
 """4. Divide a NumPy array of shape (2, 3) by a NumPy array of shape (2, 1)."""
 
@@ -426,7 +426,7 @@ def divide_broadcast(arr1, arr2):
   '''
   assert arr1.shape == (2, 3), 'arr1 debe tener la forma (2,3)'
   assert arr2.shape == (2, 1), 'arr2 debe tener la forma (2,1)'
-  return arr1 / arr2  # Broadcasting automático
+  return arr1 / arr2.T
 
 """5. Calculate the element-wise product of two NumPy arrays of shape (2, 3)."""
 
@@ -442,7 +442,7 @@ def element_wise_product(arr1, arr2):
   '''
   assert arr1.shape == (2, 3), 'arr1 debe tener la forma (2,3)'
   assert arr2.shape == (2, 3), 'arr2 debe tener la forma (2,3)'
-  return arr1 * arr2  # Multiplicación elemento a elemento
+  return arr1 * arr2
     
 """### Boolean Arrays and Masks
 
