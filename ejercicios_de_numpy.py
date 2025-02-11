@@ -155,9 +155,9 @@ subtract_arrays(arr1, arr2).__repr__()
 def multiply_arrays(arr1, arr2):
   '''Multiplica dos arreglos de numpy elemento por elemento.
   '''
-   return arr2 * arr1
+  return arr2 * arr1
 
-arr1 = np.array([1, 2, 3])
+  arr1 = np.array([1, 2, 3])
   arr2 = np.array([4, 5, 6])
   multiply_arrays(arr1, arr2).__repr__()
 
@@ -174,7 +174,7 @@ def divide_arrays(arr1, arr2):
 
   return arr2 / arr1
 
-arr1 = np.array([1, 2, 3])
+  arr1 = np.array([1, 2, 3])
   arr2 = np.array([4, 5, 6])
   divide_arrays(arr1, arr2).__repr__()
 
@@ -406,10 +406,10 @@ def reshape_10x10x10x10(arr):
     - arr.size == 10000
   '''
   assert arr.size == 10000, 'El arreglo (arr) debe tener 10000 elementos'
-    return arr.reshape(10, 10, 10, 10)
+  return arr.reshape(10, 10, 10, 10)
 
 arr_1000 = np.arange(1, 1001)
-  reshape_10x10x10x10(arr_1000)
+reshape_10x10x10x10(arr_1000)
 
 """### NumPy Array Broadcasting
 
@@ -429,8 +429,8 @@ def add_broadcast(arr1, arr2):
   return arr1 + arr2
 
 arr1 = np.array([[1, 2, 3], [4, 5, 6]])
-  arr2 = np.array([[1], [2]])
-  add_broadcast(arr1, arr2)
+arr2 = np.array([[1], [2]])
+add_broadcast(arr1, arr2)
 
 """2. Subtract a NumPy array of shape (3, 2) from a NumPy array of shape (2, 3)."""
 
@@ -448,8 +448,8 @@ def subtract_broadcast(arr1, arr2):
   return arr1 - arr2
 
 arr1 = np.array([[1, 2], [3, 4], [5, 6]])
-  arr2 = np.array([[1, 2, 3], [4, 5, 6]])
-  subtract_broadcast(arr1, arr2)
+arr2 = np.array([[1, 2, 3], [4, 5, 6]])
+subtract_broadcast(arr1, arr2)
 
 """3. Multiply a NumPy array of shape (2, 3) by a NumPy array of shape (3, 2)."""
 
@@ -484,8 +484,8 @@ def divide_broadcast(arr1, arr2):
   return arr1 / arr2
 
 arr1 = np.array([[1, 2, 3], [4, 5, 6]])
-  arr2 = np.array([[1], [2]])
-  divide_broadcast(arr1, arr2)
+arr2 = np.array([[1], [2]])
+divide_broadcast(arr1, arr2)
 
 """5. Calculate the element-wise product of two NumPy arrays of shape (2, 3)."""
 
@@ -502,8 +502,8 @@ def element_wise_product(arr1, arr2):
   return arr1 * arr2
 
 arr1 = np.array([[1, 2, 3], [4, 5, 6]])
-  arr2 = np.array([[1, 2, 3], [4, 5, 6]])
-  element_wise_product(arr1, arr2)
+arr2 = np.array([[1, 2, 3], [4, 5, 6]])
+element_wise_product(arr1, arr2)
 
 """### Boolean Arrays and Masks
 
@@ -522,7 +522,7 @@ def temp_data(temps):
   mask = temps > 25
 
 temps = np.array([10, 15, 20, 25, 30, 35, 40, 45, 50])
-  temp_data(temps)
+temp_data(temps)
 
 """2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
 
@@ -539,7 +539,7 @@ def rainfall_data(rainfall):
 
 
 rainfall = np.array([[100, 200, 300], [400, 500, 600], [700, 800, 900]])
-  rainfall_data(rainfall)
+rainfall_data(rainfall)
 
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
 
@@ -561,7 +561,7 @@ def image_thresholding(image):
     return binary_image
 
 image = np.array([[100, 200, 300], [400, 500, 600], [700, 800, 900]])
-  image_thresholding(image)
+image_thresholding(image)
 
 """### Fancy Indexing
 
@@ -586,7 +586,7 @@ def matrix_diagonals(matrix):
   return (diagonal, anti_diagonal)
 
 matrix = np.array([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 1, 15], [16, 17, 18, 19, 20], [21, 22, 23, 24, 25]])
-  matrix_diagonals(matrix)
+matrix_diagonals(matrix)
 
 """# Test"""
 
