@@ -453,15 +453,13 @@ def subtract_broadcast(arr1, arr2):
   arr2: numpy.ndarray
     arreglo de numpy de forma (2, 3).
   '''
-    return arr1 - arr2.T
-  
+  return arr1 - arr2.T
 
 subtract_broadcast(np.array([[1, 2], [3, 4], [5, 6]]), np.array([[1, 2, 3], [4, 5, 6]]))
 
 """3. Multiply a NumPy array of shape (2, 3) by a NumPy array of shape (3, 2)."""
 
 def multiply_broadcast(arr1, arr2):
-    
   '''Multiplica dos arreglos de numpy con formas (2, 3) y (3, 2).
 
   Parameters
@@ -471,9 +469,7 @@ def multiply_broadcast(arr1, arr2):
   arr2: numpy.ndarray
     arreglo de numpy de forma (3, 2).
   '''
-    return np.dot(arr1, arr2)
-    
-  
+  return np.dot(arr1, arr2)
 
 multiply_broadcast(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[1, 2], [3, 4], [5, 6]]))
 
@@ -489,10 +485,11 @@ def divide_broadcast(arr1, arr2):
   arr2: numpy.ndarray
     arreglo de numpy de forma (2, 1).
   '''
-    return arr1 / arr2
-  
+  return arr1 / arr2
 
 """5. Calculate the element-wise product of two NumPy arrays of shape (2, 3)."""
+
+
 
 
 
@@ -506,8 +503,10 @@ def element_wise_product(arr1, arr2):
   arr2: numpy.ndarray
     arreglo de numpy de forma (2, 3).
   '''
+  try:
     return arr1 * arr2
-  
+  except ValueError:
+    print('Las formas no son compatibles')
 
 element_wise_product(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[1, 2, 3], [4, 5, 6]]))
 
