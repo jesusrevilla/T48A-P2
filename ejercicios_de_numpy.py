@@ -466,8 +466,8 @@ def multiply_broadcast(arr1, arr2):
   return arr1 * arr2
 
 arr1 = np.array([[1, 2, 3], [4, 5, 6]])
-  arr2 = np.array([[1, 2], [3, 4], [5, 6]])
-  multiply_broadcast(arr1, arr2)
+arr2 = np.array([[1, 2], [3, 4], [5, 6]])
+multiply_broadcast(arr1, arr2)
 
 """4. Divide a NumPy array of shape (2, 3) by a NumPy array of shape (2, 1)."""
 
