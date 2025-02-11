@@ -14,7 +14,7 @@ class TestNumpyExercises(unittest.TestCase):
         '''TODO: Reemplaza prueba por numeros enteros entre 0 100 y logitud de ndarray'''
         result = rand_int()
         assert result.size == 10
-        assert result.dtype == np.int
+        assert result.dtype == np.int64
 
     def test_rand_float(self):
         '''TODO: reemplaza prueba por números flotantes entre 0 y 1 y logitud de ndarray'''
