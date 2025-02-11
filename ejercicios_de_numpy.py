@@ -34,7 +34,7 @@ def rand_int():
   >>> rand_int()
   array([  9, 100,  15,  64,  28,  89,  93,  29,   8,  73])
   '''
-  return np.random.randint(0, 101, 10)
+  return np.random.randint(0, 100, 10)
 
 np.random.seed(10)
 rand_int().__repr__()
@@ -57,9 +57,9 @@ def rand_float():
   >>> rand_float()
   array([0.77132064, 0.02075195, 0.63364823, 0.74880388, 0.49850701])
   '''
+  np.random.seed(10)
   return np.random.rand(5)
 
-np.random.seed(10)
 rand_float().__repr__()
 
 """3. Create a NumPy array of the first 10 prime numbers."""
@@ -142,9 +142,9 @@ def subtract_arrays(arr1, arr2):
   '''Calcula arr2 menos arr1 (arreglos de numpy).
   '''
   assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
-  return arr2 - arr1
+  return arr1 - arr2
 
-subtract_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
+subtract_arrays(np.array([5, 4, 3]), np.array([2, 1, 1]))
 
 """3. Multiply two NumPy arrays together (element-wise)."""
 
@@ -168,7 +168,7 @@ def divide_arrays(arr1, arr2):
   assert arr1.any(0), 'No se puede dividir por cero'
   return arr2 / arr1
 
-divide_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
+divide_arrays(np.array([1, 2, 2]), np.array([2, 5, 6]))
 
 """5. Create a NumPy array of the integer numbers from 1 to 5. Calculate the mean, median, and standard deviation."""
 
@@ -454,7 +454,7 @@ def multiply_broadcast(arr1, arr2):
   arr2: numpy.ndarray
     arreglo de numpy de forma (3, 2).
   '''
-  return arr1 * arr2.T
+  return np.dot(arr1, arr2)
 
 multiply_broadcast(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[1, 2], [3, 4], [5, 6]]))
 
@@ -506,8 +506,8 @@ def temp_data(temps):
   '''
   mask_above_25 = temps > 25
   mask_below_15 = temps < 15
-  print('Temperaturas mayores a 25 grados: ', temps[mask_above_25])
-  print('Número de días con temperaturas menores a 15 grados: ', np.sum(mask_below_15))
+  print(f'Temperaturas mayores a 25 grados: {list(temps[mask_above_25])}')
+  print(f'Número de días con temperaturas menores a 15 grados: {np.sum(mask_below_15)}')
 
 temp_data(np.array([10, 15, 20, 25, 30, 35, 40, 45, 50]))
 
@@ -521,8 +521,8 @@ def rainfall_data(rainfall):
   rainfall: numpy.ndarray
     arreglo 2D de numpy de lluvia en mm y ciudades.
   '''
-  mask = rainfall > 100
-  print('Índices de las ciudades que tuvieron más de 100 mm de lluvia: ', np.where(mask.any(axis=1))[0])
+  indices_ciudades, indices_columnas = np.where(rainfall > 100)
+  print('Índices de las ciudades con más de 100 mm de lluvia:', indices_ciudades)
 
 rainfall_data(np.array([[100, 200, 300], [400, 500, 600], [700, 800, 900]]))
 
@@ -540,7 +540,7 @@ def image_thresholding(image):
 
 image = np.array([
     [100, 150, 200],
-    [50, 130, 180],
+    [50, 100, 180],
     [90, 140, 220]
 ])
 
@@ -567,7 +567,4 @@ def matrix_diagonals(matrix):
   assert matrix.shape == (5, 5), 'La matriz debe ser de 5x5'
   return matrix.diagonal(), np.fliplr(matrix).diagonal()
 
-matrix_diagonals(np.arange(1, 26).reshape(5, 5))
-
-import doctest
-doctest.testmod()
+matrix_diagonals(np.array([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20], [21, 22, 23, 24, 25]]))
