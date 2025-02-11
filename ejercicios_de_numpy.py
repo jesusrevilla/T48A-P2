@@ -36,8 +36,6 @@ def rand_int():
   '''
   return np.random.randint(0, 100, 10)
 
-np.random.seed(10)
-rand_int().__repr__()
 
 """2. Create a NumPy array of 5 random floating-point numbers between 0 and 1."""
 
@@ -79,15 +77,13 @@ def first_10_primes():
 
     return primos
 
-first_10_primes()
-
 """4. Create a NumPy array of the squares of the numbers from 1 to 10."""
 
 def squares():
   '''Regresa un arreglo de numpy con los cuadrados de los números del 1 al 10.
   '''
   return np.arange(1, 11) ** 2
-squares()
+
 
 """5. Create a NumPy array of the cubes of the numbers from 1 to 10."""
 
@@ -95,7 +91,7 @@ def cubes():
   '''Regresa un arreglo de numpy con los cubos de los números del 1 al 10.
   '''
   return np.arange(1, 11) ** 3
-cubes()
+
 
 """### NumPy Array Operations
 
@@ -135,7 +131,7 @@ def add_arrays(arr1, arr2):
   arr2 = np.array(arr2)
   arr3 = arr1 + arr2
   return arr3
-add_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
+
 
 """2. Subtract two NumPy arrays from each other, second argument less first."""
 
@@ -146,7 +142,7 @@ def subtract_arrays(arr1, arr2):
     return print('Los arreglos deben de tener el mismo tamaño')
   arr3 = arr2 - arr1
   return arr3
-subtract_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
+
 
 """3. Multiply two NumPy arrays together (element-wise)."""
 
@@ -157,7 +153,7 @@ def multiply_arrays(arr1, arr2):
     return print('Los arreglos deben de tener el mismo tamaño')
   arr3 = arr2 * arr1
   return arr3
-multiply_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
+
 
 """4. Divide two NumPy arrays by each other (element-wise)."""
 
@@ -174,7 +170,7 @@ def divide_arrays(arr1, arr2):
     return print('No se puede dividir por cero')
   arr3 = arr2 / arr1
   return arr3
-divide_arrays(np.array([1, 5, 5]), np.array([1, 0, 6]))
+
 
 """5. Create a NumPy array of the integer numbers from 1 to 5. Calculate the mean, median, and standard deviation."""
 
@@ -472,7 +468,6 @@ def subtract_broadcast(arr1, arr2):
   arr2 = arr2.T  # Now arr2 will have shape (3, 2)
   return arr1 - arr2
 
-print(subtract_broadcast(np.array([[1, 2], [3, 4], [5, 6]]), np.array([[1, 2, 3], [4, 5, 6]])))
 
 """3. Multiply a NumPy array of shape (2, 3) by a NumPy array of shape (3, 2)."""
 
@@ -581,7 +576,6 @@ rainfall = np.array([[90, 105, 50, 80, 120, 110, 60, 70, 90, 95, 60, 100],
                      [75, 85, 100, 60, 45, 30, 50, 110, 95, 80, 70, 50],
                      [55, 65, 85, 95, 100, 120, 75, 60, 80, 70, 85, 95]])
 
-rainfall_data(rainfall)
 
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
 
@@ -606,11 +600,6 @@ def image_thresholding(image):
 
     return binary_image
 
-# Ejemplo de uso
-image = np.random.randint(0, 256, (100, 100), dtype=np.uint8)  # Crear una imagen aleatoria de 100x100
-binary_image = image_thresholding(image)
-
-print(binary_image)
 
 """### Fancy Indexing
 
