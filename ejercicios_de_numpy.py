@@ -75,12 +75,11 @@ def first_10_primes():
 
 """4. Create a NumPy array of the squares of the numbers from 1 to 10."""
 
-def squares():
-  '''Regresa un arreglo de numpy con los cuadrados de los números del 1 al 10.
-  '''
+def squares():  
+    '''Regresa un arreglo de numpy con los cuadrados de los números del 1 al 10.
+    '''
     a = np.arange(1, 11)
     return np.square(a)
-    
 
 """5. Create a NumPy array of the cubes of the numbers from 1 to 10."""
 
@@ -464,5 +463,3 @@ def matrix_diagonals(matrix):
     - matrix.shape == (5, 5)
   '''
   assert matrix.shape == (5, 5), 'La matriz debe ser de 5x5'
-
-"""# Test"""
