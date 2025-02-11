@@ -34,6 +34,7 @@ def rand_int():
   >>> rand_int()
   array([  9, 100,  15,  64,  28,  89,  93,  29,   8,  73])
   '''
+  assert result.size == 10
   return np.random.randint(0, 101, 10)
 
 """2. Create a NumPy array of 5 random floating-point numbers between 0 and 1."""
