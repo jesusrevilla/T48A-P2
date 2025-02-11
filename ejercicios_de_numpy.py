@@ -57,7 +57,7 @@ def rand_float():
   >>> rand_float()
   array([0.77132064, 0.02075195, 0.63364823, 0.74880388, 0.49850701])
   '''
-  return np.random.rand(5)
+  return np.random.rand(10)
 
 np.random.seed(10)
 rand_float().__repr__()
@@ -469,8 +469,8 @@ def add_broadcast(arr1, arr2):
   '''
   return arr1 + arr2
 
-arr1 = np.array([1, 2])
-arr2 = np.array([3, 4])
+arr1 = np.array([2, 3, 4],[2, 3, 4])
+arr2 = np.array([2])
 add_broadcast(arr1, arr2).__repr__()
 
 """2. Subtract a NumPy array of shape (3, 2) from a NumPy array of shape (2, 3)."""
@@ -488,8 +488,8 @@ def subtract_broadcast(arr1, arr2):
   '''
   return arr1 - arr2
 
-arr1 = np.array([1, 2])
-arr2 = np.array([3, 4])
+arr1 = np.array([3, 2], [3, 2], [3, 2])
+arr2 = np.array([2, 3, 4], [2, 3, 4])
 subtract_broadcast(arr1, arr2).__repr__()
 
 """3. Multiply a NumPy array of shape (2, 3) by a NumPy array of shape (3, 2)."""
@@ -524,8 +524,8 @@ def divide_broadcast(arr1, arr2):
   '''
   return arr1 / arr2
 
-arr1 = np.array([1, 2])
-arr2 = np.array([3, 4])
+arr1 = np.array([2, 3, 4], [2, 3, 4])
+arr2 = np.array([2],[3])
 divide_broadcast(arr1, arr2).__repr__()
 
 """5. Calculate the element-wise product of two NumPy arrays of shape (2, 3)."""
@@ -598,8 +598,8 @@ def image_thresholding(image):
   image: numpy.ndarray
     arreglo 2D de numpy de una imagen en escala de grises.
   '''
-  image[image > 128] = 255
-  image[image <= 128] = 0
+  image[image >= 128] = 255
+  image[image < 128] = 0
   return image
 
 image_thresholding(rf).__repr__()
