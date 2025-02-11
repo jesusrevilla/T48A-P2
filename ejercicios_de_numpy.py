@@ -78,6 +78,9 @@ def first_10_primes():
 def squares():
   '''Regresa un arreglo de numpy con los cuadrados de los números del 1 al 10.
   '''
+    a = np.arange(1, 11)
+    return np.square(a)
+    
 
 """5. Create a NumPy array of the cubes of the numbers from 1 to 10."""
 
