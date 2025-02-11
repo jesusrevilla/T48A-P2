@@ -408,7 +408,7 @@ def reshape_10x10x10x10(arr):
   assert arr.size == 10000, 'El arreglo (arr) debe tener 10000 elementos'
   return arr.reshape(10, 10, 10, 10)
 
-arr_1000 = np.arange(1, 1001)
+arr_1000 = np.arange(1000)
 reshape_10x10x10x10(arr_1000)
 
 """### NumPy Array Broadcasting
