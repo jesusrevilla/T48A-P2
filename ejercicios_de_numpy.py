@@ -5,7 +5,7 @@ def rand_int():
   arr = np.random.randint(0, 101, 10)
   arr_int = arr.astype(np.int64)
 
-  return 
+  return arr_int
 
 def rand_float():
   return np.random.rand(5)
@@ -32,7 +32,7 @@ def multiply_arrays(arr1, arr2):
 
 def divide_arrays(arr1, arr2):
   assert arr1.any(0), 'No se puede dividir por cero'
-  return arr2 / arr1
+  return arr1 / arr2
 
 def stats(arr):
   assert arr.size == 5, 'El arreglo debe tener 5 elementos'
