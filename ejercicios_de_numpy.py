@@ -99,8 +99,8 @@ def element_wise_product(arr1, arr2):
   return arr1 * arr2
 
 def temp_data(temps):
-  mask_above_25 = temperatures >= 25 #Condicion mayor a 25 Grados celsius
-  mask_below_15 = temperatures <= 15 #Condicion menor a 15 Grados celsius
+  mask_above_25 = temps >= 25 #Condicion mayor a 25 Grados celsius
+  mask_below_15 = temps <= 15 #Condicion menor a 15 Grados celsius
   days = np.count_nonzero(mask_below_15)
 
 def rainfall_data(rainfall):
