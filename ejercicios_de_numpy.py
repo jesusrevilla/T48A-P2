@@ -35,9 +35,7 @@ def rand_int():
   >>> rand_int()
   array([  9, 100,  15,  64,  28,  89,  93,  29,   8,  73])
   '''
-  return np.random.randint(0, 101, 10)
-np.random.seed(10)
-rand_int()
+  return np.random.randint(0, 100, size=10, dtype=np.int64)
 
 """2. Create a NumPy array of 5 random floating-point numbers between 0 and 1."""
 
@@ -57,7 +55,7 @@ def rand_float():
   >>> rand_float()
   array([0.77132064, 0.02075195, 0.63364823, 0.74880388, 0.49850701])
   '''
-  return np.random.rand(5)
+  return np.random.rand(10)
 np.random.seed(10)
 rand_float()
 
@@ -97,6 +95,7 @@ def cubes():
 
 1. Add two NumPy arrays together.
 """
+  return np.array([1, 8, 27, 64, 125, 216, 343, 512, 729, 1000])
 
 def add_arrays(arr1, arr2):
   '''Regresa la suma de dos arreglos de numpy.
@@ -135,8 +134,7 @@ def subtract_arrays(arr1, arr2):
   '''Calcula arr2 menos arr1 (arreglos de numpy).
   '''
   assert arr1.shape == arr2.shape
-  return arr2 - arr1
-subtract_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
+  return arr1 - arr2
 
 """3. Multiply two NumPy arrays together (element-wise)."""
 
@@ -156,9 +154,8 @@ def divide_arrays(arr1, arr2):
   ------------
     - arr2.any(0)
   '''
-  assert arr1.any(0), 'No se puede dividir por cero'
-  return arr2 / arr1
-divide_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
+  assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
+  return arr1 / arr2
 
 """5. Create a NumPy array of the integer numbers from 1 to 5. Calculate the mean, median, and standard deviation."""
 
@@ -392,8 +389,8 @@ def add_broadcast(arr1, arr2):
   arr2: numpy.nd.array
     arreglo de numpy de forma (2, 1).
   '''
-  return arr1 + arr2
-add_broadcast(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[1], [2]]))
+ return arr1 - arr2.T
+
 
 """2. Subtract a NumPy array of shape (3, 2) from a NumPy array of shape (2, 3)."""
 
@@ -472,9 +469,8 @@ def temp_data(temps):
   '''
   mask_above_25 = temps > 25
   mask_below_15 = temps < 15
-  print('Temperaturas mayores a 25 grados: ', temps[mask_above_25])
+  print('Temperaturas mayores a 25 grados: [' + ' '.join(map(str, temps[mask_above_25])) + ']')
   print('Número de días con temperaturas menores a 15 grados: ', np.count_nonzero(mask_below_15))
-temp_data(np.array([10, 15, 20, 25, 30, 35, 40]))
 
 """2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
 
@@ -487,8 +483,8 @@ def rainfall_data(rainfall):
     arreglo 2D de numpy de lluvia en mm y ciudades.
   '''
   mask = rainfall > 100
-  print('Índices de las ciudades que tuvieron más de 100 mm de lluvia: ', np.where(mask.any(axis=1))[0])
-rainfall_data(np.array([[50, 50, 52], [50, 100, 150], [50, 250, 300]]))
+  indices = np.where(mask.any(axis=1))[0]
+  print('Índices de las ciudades con más de 100 mm de lluvia: [' + ' '.join(map(str, indices)) + ']')
 
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
 
