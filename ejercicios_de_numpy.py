@@ -1,3 +1,4 @@
+"""Ana Karen Castillo López - 173644 """
 # -*- coding: utf-8 -*-
 """Copia de Ejercicios de numpy.ipynb
 
