@@ -136,7 +136,7 @@ def multiply_broadcast(arr1, arr2):
     assert arr1.shape == (2, 3), 'arr1 debe tener la forma (2, 3)'
     assert arr2.shape == (3, 2), 'arr2 debe tener la forma (3, 2)'
     arr2 = arr2.T
-    return arr1 @ arr2
+    return arr1 * arr2
 
 def divide_broadcast(arr1, arr2):
     arr1 = np.array(arr1)
