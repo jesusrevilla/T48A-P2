@@ -36,8 +36,6 @@ def rand_int():
   '''
   return np.random.randint(0, 101, 10)
 
-rand_int().__repr__()
-
 """2. Create a NumPy array of 5 random floating-point numbers between 0 and 1."""
 
 def rand_float():
