@@ -39,8 +39,7 @@ def rand_float():
     numpy.ndarray
         Arreglo de numpy con 10 números punto flotante entre 0 y 1.
     '''
-    np.random.seed(10)
-    return np.random.rand(5)
+    return np.random.rand(5).astype(np.float64)
 
 """3. Create a NumPy array of the first 10 prime numbers."""
 
@@ -613,8 +612,8 @@ def temp_data(temps):
     temps: numpy.ndarray
         Arreglo de numpy de temperaturas en Celsius.
     '''
-    high_temps = temps[temps > 25]
-    low_temp_days = np.sum(temps < 15)
+    high_temps = temps[temps > 25].tolist()
+    low_temp_days = int(np.sum(temps < 15))
     print(f"Temperaturas mayores a 25 grados: {high_temps}")
     print(f"Número de días con temperatura menor a 15 grados: {low_temp_days}")
 
