@@ -190,7 +190,7 @@ def divide_arrays(arr1, arr2):
     # Realizar la división
   return arr2 / arr1
 
-divide_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
+divide_arrays(np.array([1, 2, 3]), np.array([2, 5, 9]))
 
 """5. Create a NumPy array of the integer numbers from 1 to 5. Calculate the mean, median, and standard deviation."""
 
