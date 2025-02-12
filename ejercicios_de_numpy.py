@@ -134,7 +134,6 @@ def add_arrays(arr1, arr2):
     - arr1.shape == arr2.shape
 
   Examples
-  --------
   >>> add_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
   array([5, 7, 9])
 
