@@ -55,9 +55,7 @@ def rand_float():
   >>> rand_float()
   array([0.77132064, 0.02075195, 0.63364823, 0.74880388, 0.49850701])
   '''
-  return np.random.rand(10)
-np.random.seed(10)
-rand_float()
+  return np.random.rand(5).astype(np.float64)
 
 """3. Create a NumPy array of the first 10 prime numbers."""
 
@@ -389,7 +387,7 @@ def add_broadcast(arr1, arr2):
   arr2: numpy.nd.array
     arreglo de numpy de forma (2, 1).
   '''
-  return arr1 + arr2
+  return arr1 - arr2
 
 
 """2. Subtract a NumPy array of shape (3, 2) from a NumPy array of shape (2, 3)."""
@@ -470,7 +468,7 @@ def temp_data(temps):
   mask_above_25 = temps > 25
   mask_below_15 = temps < 15
   print('Temperaturas mayores a 25 grados: [' + ' '.join(map(str, temps[mask_above_25])) + ']')
-  print('Número de días con temperaturas menores a 15 grados: ', np.count_nonzero(mask_below_15))
+  print('Número de días con temperatura menor a 15 grados:', np.count_nonzero(mask_below_15))
 
 """2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
 
@@ -484,7 +482,7 @@ def rainfall_data(rainfall):
   '''
   mask = rainfall > 100
   indices = np.where(mask.any(axis=1))[0]
-  print('Índices de las ciudades con más de 100 mm de lluvia: [' + ' '.join(map(str, indices)) + ']')
+  print('Índices de las ciudades con más de 100 mm de lluvia:', ' '.join(map(str, indices)))
 
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
 
@@ -496,11 +494,11 @@ def image_thresholding(image):
   image: numpy.ndarray
     arreglo 2D de numpy de una imagen en escala de grises.
   '''
-  mask = image > 128
-  image[mask] = 255
-  image[~mask] = 0
-  return image
-image_thresholding(np.array([[129, 100, 100], [100, 200, 100], [100, 100, 300]]))
+  result = image.copy()
+  mask = result > 128
+  result[mask] = 255
+  result[~mask] = 0
+  return result
 
 """### Fancy Indexing
 
