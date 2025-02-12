@@ -58,9 +58,15 @@ def rand_float():
   array([0.77132064, 0.02075195, 0.63364823, 0.74880388, 0.49850701])
   '''
   np.random.seed(10)
-  return np.random.rand(5)
+  arr = np.random.rand(5)
 
-rand_float().__repr__()
+  assert isinstance(arr, np.ndarray), "El resultado debe ser un ndarray"
+  assert arr.shape == (5,), "El resultado debe tener 5 elementos"
+  assert np.all((arr >= 0) & (arr <= 1)), "Todos los valores deben estar en el rango [0,1]"
+
+  return arr
+
+rand_float()
 
 """3. Create a NumPy array of the first 10 prime numbers."""
 
@@ -168,7 +174,7 @@ def divide_arrays(arr1, arr2):
   assert arr1.any(0), 'No se puede dividir por cero'
   return arr2 / arr1
 
-divide_arrays(np.array([1, 2, 2]), np.array([2, 5, 6]))
+divide_arrays(np.array([4, 4, 4]), np.array([2, 2, 2]))
 
 """5. Create a NumPy array of the integer numbers from 1 to 5. Calculate the mean, median, and standard deviation."""
 
@@ -506,10 +512,11 @@ def temp_data(temps):
   '''
   mask_above_25 = temps > 25
   mask_below_15 = temps < 15
-  print(f'Temperaturas mayores a 25 grados: {list(temps[mask_above_25])}')
+
+  print(f'Temperaturas mayores a 25 grados: {temps[mask_above_25]}')  # Sin list()
   print(f'Número de días con temperaturas menores a 15 grados: {np.sum(mask_below_15)}')
 
-temp_data(np.array([10, 15, 20, 25, 30, 35, 40, 45, 50]))
+temp_data(np.array([12, 18, 22, 28, 30, 35]))
 
 """2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
 
@@ -536,7 +543,7 @@ def image_thresholding(image):
   image: numpy.ndarray
     arreglo 2D de numpy de una imagen en escala de grises.
   '''
-  return np.where(image > 128, 255, 0)
+  return np.where(image >= 128, 255, 0)
 
 image = np.array([
     [100, 150, 200],
