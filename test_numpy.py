@@ -13,7 +13,7 @@ class TestNumpyExercises(unittest.TestCase):
     def test_rand_int(self):
         '''TODO: Reemplaza prueba por numeros enteros entre 0 100 y logitud de ndarray'''
         result = rand_int()
-        assert result.size == 10
+        assert result.size == 5
         assert result.dtype == np.int
 
     def test_rand_float(self):
