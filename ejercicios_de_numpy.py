@@ -39,7 +39,8 @@ def rand_float():
     numpy.ndarray
         Arreglo de numpy con 10 números punto flotante entre 0 y 1.
     '''
-    return np.random.rand(10).astype(np.float64)
+    np.random.seed(10)
+    return np.random.rand(5)
 
 """3. Create a NumPy array of the first 10 prime numbers."""
 
@@ -612,8 +613,10 @@ def temp_data(temps):
     temps: numpy.ndarray
         Arreglo de numpy de temperaturas en Celsius.
     '''
-    print("Temperaturas mayores a 25 grados:", temps[temps > 25])
-    print("Número de días con temperatura menor a 15 grados:", np.sum(temps < 15))
+    high_temps = temps[temps > 25]
+    low_temp_days = np.sum(temps < 15)
+    print(f"Temperaturas mayores a 25 grados: {high_temps}")
+    print(f"Número de días con temperatura menor a 15 grados: {low_temp_days}")
 
 """2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
 
@@ -665,4 +668,4 @@ def matrix_diagonals(matrix):
   ------------
     - matrix.shape == (5, 5)
   '''
-  return np.diag(matrix), np.diag(np.fliplr(matrix))
+  return np.diagonal(matrix), np.fliplr(matrix).diagonal()
