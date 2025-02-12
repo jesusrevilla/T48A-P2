@@ -602,7 +602,9 @@ def image_thresholding(image):
   image: numpy.ndarray
     arreglo 2D de numpy de una imagen en escala de grises.
   '''
-
+image = np.array([[154, 54, 168, 90, 128], [154, 54, 68, 90, 128], [154, 54, 168, 90, 128], [154, 54, 168, 90, 129], [154, 54, 168, 90, 129]])
+print(image)
+image_thresholding(image)
 """### Fancy Indexing
 
 1. Matrix Diagonals: Create a 5x5 matrix with values from 1 to 25.  Use fancy indexing to extract the elements on the main diagonal and the elements on the anti-diagonal.
