@@ -510,6 +510,7 @@ image_thresholding(np.array([[129, 100, 100], [100, 200, 100], [100, 100, 300]])
 1. Matrix Diagonals: Create a 5x5 matrix with values from 1 to 25.  Use fancy indexing to extract the elements on the main diagonal and the elements on the anti-diagonal.
 """
 
+@staticmethod
 def matrix_diagonals(matrix):
   '''Regresa un tuple con los elementos de la diagonal principal y antidiagonal.
 
@@ -524,4 +525,4 @@ def matrix_diagonals(matrix):
   '''
   assert matrix.shape == (5, 5), 'La matriz debe ser de 5x5'
   return (matrix.diagonal(), np.fliplr(matrix).diagonal())
-'''matrix_diagonals(np.arange(1, 26).reshape(5, 5))'''
+matrix_diagonals(np.arange(1, 26).reshape(5, 5))
