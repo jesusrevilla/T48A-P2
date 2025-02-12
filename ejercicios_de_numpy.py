@@ -188,7 +188,7 @@ def divide_arrays(arr1, arr2):
     # Comprobar si ambos arreglos tienen el mismo tamaño
   assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
     # Realizar la división
-  return arr2 / arr1
+  return arr1 / arr2
 
 divide_arrays(np.array([1, 2, 3]), np.array([2, 5, 9]))
 
