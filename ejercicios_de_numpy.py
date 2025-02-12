@@ -614,7 +614,7 @@ def temp_data(temps):
         Arreglo de numpy de temperaturas en Celsius.
     '''
     high_temps = temps[temps > 25]
-    low_temp_days = np.sum(temps < 15)
+    low_temp_days = np.sum(temps <= 15)
 
     # Primera línea - usando join para asegurar el formato exacto
     print(f"Temperaturas mayores a 25 grados: [{' '.join(map(str, high_temps))}]")
