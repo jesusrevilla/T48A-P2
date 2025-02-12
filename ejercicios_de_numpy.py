@@ -467,20 +467,25 @@ subtract_broadcast(arr1, arr2)
 """3. Multiply a NumPy array of shape (2, 3) by a NumPy array of shape (3, 2)."""
 
 def multiply_broadcast(arr1, arr2):
-  '''Multiplica dos arreglos de numpy con formas (2, 3) y (3, 2).
+    '''Multiplica dos arreglos de numpy con formas (2, 3) y (3, 2) haciendo ajustes para broadcasting.
 
-  Parameters
-  ---------
-  arr1: numpy.ndarray
-    arreglo de numpy de forma (2, 3).
-  arr2: numpy.ndarray
-    arreglo de numpy de forma (3, 2).
-  '''
-  return arr1 * arr2
+    Parameters
+    ----------
+    arr1: numpy.ndarray
+        arreglo de numpy de forma (2, 3).
+    arr2: numpy.ndarray
+        arreglo de numpy de forma (3, 2).
+    '''
+    # Ajustar las formas de los arreglos para hacerlos compatibles
+    arr1 = arr1.reshape(2, 3, 1)
+    arr2 = arr2.reshape(1, 3, 2)
+    return arr1 * arr2
 
 arr1 = np.array([[1, 2, 3], [4, 5, 6]])
 arr2 = np.array([[1, 2], [3, 4], [5, 6]])
-multiply_broadcast(arr1, arr2)
+
+result = multiply_broadcast(arr1, arr2)
+print(result)
 
 """4. Divide a NumPy array of shape (2, 3) by a NumPy array of shape (2, 1)."""
 
