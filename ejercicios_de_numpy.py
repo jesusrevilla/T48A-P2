@@ -435,17 +435,28 @@ add_broadcast(arr1, arr2)
 """2. Subtract a NumPy array of shape (3, 2) from a NumPy array of shape (2, 3)."""
 
 def subtract_broadcast(arr1, arr2):
-  '''(np.ndarray, np.ndarray) -> np.ndarray
-  Regresa la resta de dos arreglos de numpy con formas (3, 2) y (2, 3).
+    '''(np.ndarray, np.ndarray) -> np.ndarray
+    Regresa la resta de dos arreglos de numpy con formas compatibles para broadcasting.
 
-  Parameters
-  ----------
-  arr1: numpy.ndarray
-    arreglo de numpy de forma (3, 2).
-  arr2: numpy.ndarray
-    arreglo de numpy de forma (2, 3).
-  '''
-  return arr1 - arr2
+    Parameters
+    ----------
+    arr1: numpy.ndarray
+        arreglo de numpy.
+    arr2: numpy.ndarray
+        arreglo de numpy.
+    '''
+    # Asegurarse de que ambos arreglos sean compatibles para broadcasting
+    return arr1 - arr2
+
+arr1 = np.array([[1, 2], [3, 4], [5, 6]])  # Forma (3, 2)
+arr2 = np.array([[1], [2]])  # Forma (2, 1), después de broadcasting será compatible
+
+# Para realizar la resta correctamente, necesitamos que los arreglos tengan formas compatibles
+arr2 = arr2.T  # Transponer arr2 para que tenga forma (1, 2)
+
+result = subtract_broadcast(arr1, arr2)
+print(result)
+
 
 arr1 = np.array([[1, 2], [3, 4], [5, 6]])
 arr2 = np.array([[1, 2, 3], [4, 5, 6]])
