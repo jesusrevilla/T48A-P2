@@ -60,11 +60,8 @@ def rand_float():
   np.random.seed(10)
   arr = np.random.rand(5)
 
-  assert isinstance(arr, np.ndarray), "El resultado debe ser un ndarray"
-  assert arr.shape == (5,), "El resultado debe tener 5 elementos"
-  assert np.all((arr >= 0) & (arr <= 1)), "Todos los valores deben estar en el rango [0,1]"
-
-  return arr
+  np.random.seed(10)  # Fija la semilla para reproducibilidad
+  return np.random.rand(5)  # Genera 5 números aleatorios entre 0 y 1
 
 print(rand_float())
 
@@ -516,7 +513,7 @@ def temp_data(temps):
   print(f'Temperaturas mayores a 25 grados: {temps[mask_above_25]}')  # Sin list()
   print(f'Número de días con temperatura menor a 15 grados: {np.sum(mask_below_15)}')
 
-temp_data(np.array([12, 18, 22, 28, 30, 35]))
+temp_data(np.array([10, 12, 14, 16, 18, 20, 6, 25, 30]))
 
 """2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
 
