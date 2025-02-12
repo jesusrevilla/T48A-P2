@@ -161,7 +161,7 @@ def subtract_arrays(arr1, arr2):
   '''Calcula arr2 menos arr1 (arreglos de numpy).
   '''
   assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
-  return arr2 - arr1
+  return arr1 - arr2
 
 subtract_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
 
