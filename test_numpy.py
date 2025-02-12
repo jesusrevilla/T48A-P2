@@ -220,7 +220,7 @@ class TestNumpyExercises(unittest.TestCase):
         
         print("La prueba unitaria ha pasado exitosamente.")
 
-    def test_image_thresholding():
+    def test_image_thresholding(self):
 # Crear un arreglo 2D de numpy con datos de imagen de prueba
         image = np.array([
             [100, 150, 200],
@@ -243,7 +243,7 @@ class TestNumpyExercises(unittest.TestCase):
         
         print("La prueba unitaria ha pasado exitosamente.")
 
-    def test_diagonals():
+    def test_diagonals(self):
         # Crear un arreglo 2D de numpy de 5x5 con datos de prueba
         matrix = np.array([
             [1, 2, 3, 4, 5],
