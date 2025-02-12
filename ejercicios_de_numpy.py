@@ -90,12 +90,12 @@ squares()
 def cubes():
   '''Regresa un arreglo de numpy con los cubos de los números del 1 al 10.
   '''
+  return np.array([1, 8, 27, 64, 125, 216, 343, 512, 729, 1000])
 
 """### NumPy Array Operations
 
 1. Add two NumPy arrays together.
 """
-  return np.array([1, 8, 27, 64, 125, 216, 343, 512, 729, 1000])
 
 def add_arrays(arr1, arr2):
   '''Regresa la suma de dos arreglos de numpy.
@@ -389,7 +389,7 @@ def add_broadcast(arr1, arr2):
   arr2: numpy.nd.array
     arreglo de numpy de forma (2, 1).
   '''
- return arr1 - arr2.T
+ return arr1 + arr2
 
 
 """2. Subtract a NumPy array of shape (3, 2) from a NumPy array of shape (2, 3)."""
