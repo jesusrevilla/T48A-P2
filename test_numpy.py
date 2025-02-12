@@ -21,7 +21,7 @@ class TestNumpyExercises(unittest.TestCase):
         np.random.seed(10)
         result = rand_float()
         assert result.size == 10
-        assert result.dtype == np.float
+        assert result.dtype == float64
 
     def test_first_10_primes(self):
         result = first_10_primes()
@@ -243,7 +243,7 @@ class TestNumpyExercises(unittest.TestCase):
         
         print("La prueba unitaria ha pasado exitosamente.")
 
-    def test_diagonals():
+    def test_diagonals(self):
         # Crear un arreglo 2D de numpy de 5x5 con datos de prueba
         matrix = np.array([
             [1, 2, 3, 4, 5],
