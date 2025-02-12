@@ -615,8 +615,8 @@ def temp_data(temps):
     '''
     high_temps = temps[temps > 25]
     low_temp_days = np.sum(temps < 15)
-    print("Temperaturas mayores a 25 grados:", high_temps)
-    print("Número de días con temperatura menor a 15 grados:", low_temp_days)
+    print(f"Temperaturas mayores a 25 grados: {np.array2string(high_temps, separator=' ')}")
+    print(f"Número de días con temperatura menor a 15 grados: {low_temp_days}")
 
 """2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
 
@@ -648,7 +648,6 @@ def image_thresholding(image, threshold=128):
         Arreglo 2D con los píxeles en blanco (255) o negro (0).
     '''
     binary_image = np.where(image >= threshold, 255, 0)
-
     return binary_image
 
 """### Fancy Indexing
