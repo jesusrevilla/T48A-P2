@@ -552,14 +552,11 @@ def rainfall_data(rainfall):
   rainfall: numpy.ndarray
     arreglo 2D de numpy de lluvia en mm y ciudades.
   '''
-  rainfall = np.array([[10, 20, 30], [440, 50, 60], [70, 800, 90]])
-  # Máscara booleana: ciudades con al menos un mes > 100 mm
-  mask = np.any(rainfall > 100, axis=1)
-
-  # Obtener los índices de las ciudades que cumplen la condición
-  city_indices = np.where(mask)[0]
-
-  print("Ciudades con más de 100 mm en algún mes:", city_indices)
+  arr = np.array([[10, 20, 30], [40, 50, 80], [70, 80, 90]])
+  '''suma del array por linea'''
+  sum= np.sum(arr, axis=1)
+  '''contar cuantas ciudades tuvieron más de 100 mm de lluvia'''
+  city_indices = np.where(sum > 100)
 
   return city_indices
 
