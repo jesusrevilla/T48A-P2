@@ -389,7 +389,7 @@ def add_broadcast(arr1, arr2):
   arr2: numpy.nd.array
     arreglo de numpy de forma (2, 1).
   '''
- return arr1 + arr2
+  return arr1 + arr2
 
 
 """2. Subtract a NumPy array of shape (3, 2) from a NumPy array of shape (2, 3)."""
