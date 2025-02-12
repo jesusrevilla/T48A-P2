@@ -387,7 +387,7 @@ def add_broadcast(arr1, arr2):
   arr2: numpy.nd.array
     arreglo de numpy de forma (2, 1).
   '''
-  return arr1 - arr2
+  return arr1 + arr2.repeat(3, axis=1)
 
 
 """2. Subtract a NumPy array of shape (3, 2) from a NumPy array of shape (2, 3)."""
@@ -403,7 +403,7 @@ def subtract_broadcast(arr1, arr2):
   arr2: numpy.ndarray
     arreglo de numpy de forma (2, 3).
   '''
-  return arr2 - arr1.T
+  return arr1.T
 subtract_broadcast(np.array([[1, 2], [3, 4], [5, 6]]), np.array([[1, 2, 3], [4, 5, 6]]))
 
 """3. Multiply a NumPy array of shape (2, 3) by a NumPy array of shape (3, 2)."""
@@ -467,8 +467,8 @@ def temp_data(temps):
   '''
   mask_above_25 = temps > 25
   mask_below_15 = temps < 15
-  print('Temperaturas mayores a 25 grados: [' + ' '.join(map(str, temps[mask_above_25])) + ']')
-  print('Número de días con temperatura menor a 15 grados:', np.count_nonzero(mask_below_15))
+  print(f'Temperaturas mayores a 25 grados: {temps[mask_above_25]}')
+  print(f'Número de días con temperatura menor a 15 grados: {np.sum(mask_below_15)}')
 
 """2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
 
@@ -482,7 +482,7 @@ def rainfall_data(rainfall):
   '''
   mask = rainfall > 100
   indices = np.where(mask.any(axis=1))[0]
-  print('Índices de las ciudades con más de 100 mm de lluvia:', ' '.join(map(str, indices)))
+  print(f'Índices de las ciudades con más de 100 mm de lluvia: {indices}')
 
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
 
@@ -494,10 +494,7 @@ def image_thresholding(image):
   image: numpy.ndarray
     arreglo 2D de numpy de una imagen en escala de grises.
   '''
-  result = image.copy()
-  mask = result > 128
-  result[mask] = 255
-  result[~mask] = 0
+  result = np.where(image > 128, 255, 0)
   return result
 
 """### Fancy Indexing
