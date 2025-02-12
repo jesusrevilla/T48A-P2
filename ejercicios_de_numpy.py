@@ -37,9 +37,6 @@ def rand_int():
   '''
   return np.random.randint(0, 100, 10)
 
-np.random.seed(10)
-rand_int().__repr__()
-
 """2. Create a NumPy array of 5 random floating-point numbers between 0 and 1."""
 
 def rand_float():
@@ -59,9 +56,6 @@ def rand_float():
   array([0.77132064, 0.02075195, 0.63364823, 0.74880388, 0.49850701])
   '''
   return np.random.rand(5)
-
-np.random.seed(10)
-rand_float().__repr__()
 
 """3. Create a NumPy array of the first 10 prime numbers."""
 
@@ -92,17 +86,12 @@ def first_10_primes():
         num += 1
   return np.array(primos)
 
-first_10_primes().__repr__()
-
 """4. Create a NumPy array of the squares of the numbers from 1 to 10."""
 
 def squares():
   '''Regresa un arreglo de numpy con los cuadrados de los números del 1 al 10.
   '''
   return np.arange(1, 11) ** 2
-
-x = squares()
-x.__repr__()
 
 """5. Create a NumPy array of the cubes of the numbers from 1 to 10."""
 
@@ -111,8 +100,6 @@ def cubes():
   '''
   return np.arange(1, 11) ** 3
 
-x = cubes()
-x.__repr__()
 
 """### NumPy Array Operations
 
@@ -149,9 +136,6 @@ def add_arrays(arr1, arr2):
   assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
   return arr1 + arr2
 
-suma = add_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
-print(suma)
-
 """2. Subtract two NumPy arrays from each other, second argument less first."""
 
 def subtract_arrays(arr1, arr2):
@@ -159,8 +143,6 @@ def subtract_arrays(arr1, arr2):
   '''
   return arr1 - arr2
 
-resta = subtract_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
-print(resta)
 
 """3. Multiply two NumPy arrays together (element-wise)."""
 
@@ -172,19 +154,23 @@ def multiply_arrays(arr1, arr2):
 """4. Divide two NumPy arrays by each other (element-wise)."""
 
 def divide_arrays(arr1, arr2):
+    
   '''Divide arr2 antre arr1 (arreglos de numpy).
 
   Precondition
   ------------
     - arr2.any(0)
   '''
-  if arr2.any(0):
-    return arr1 / arr2
-  assert arr1.any(0), 'No se puede dividir por cero'
+    assert arr1.any(0), 'No se puede dividir por cero'
+    assert arr1.shape == arr2.shape
+    return arr1/arr2
+
 
 """5. Create a NumPy array of the integer numbers from 1 to 5. Calculate the mean, median, and standard deviation."""
 
 def stats(arr):
+    
+    
   '''Calcula la media, la mediana y la desviación estándar de un arreglo de numpy
   en un tuple con las siguientes posiciones: (media, mediana, desviacion_std).
 
@@ -202,11 +188,11 @@ def stats(arr):
   ------------
     - arr.size == 5
   '''
-  return (np.mean(arr), np.median(arr), np.std(arr))
-  assert arr.size == 5, 'El arreglo debe tener 5 elementos'
-
-x = stats(np.arange(5))
-print(x)
+    
+    
+    assert arr.size == 5, 'El arreglo debe tener 5 elementos'
+    return (np.mean(arr), np.median(arr), np.std(arr))
+  
 
 """### NumPy Array Indexing and Slicing
 
