@@ -66,7 +66,7 @@ def rand_float():
 
   return arr
 
-rand_float()
+print(rand_float())
 
 """3. Create a NumPy array of the first 10 prime numbers."""
 
@@ -172,9 +172,9 @@ def divide_arrays(arr1, arr2):
     - arr2.any(0)
   '''
   assert arr1.any(0), 'No se puede dividir por cero'
-  return arr2 / arr1
+  return arr1 / arr2
 
-divide_arrays(np.array([4, 4, 4]), np.array([2, 2, 2]))
+divide_arrays(np.array([4, 5, 6]), np.array([2, 2, 2]))
 
 """5. Create a NumPy array of the integer numbers from 1 to 5. Calculate the mean, median, and standard deviation."""
 
@@ -514,7 +514,7 @@ def temp_data(temps):
   mask_below_15 = temps < 15
 
   print(f'Temperaturas mayores a 25 grados: {temps[mask_above_25]}')  # Sin list()
-  print(f'Número de días con temperaturas menores a 15 grados: {np.sum(mask_below_15)}')
+  print(f'Número de días con temperatura menor a 15 grados: {np.sum(mask_below_15)}')
 
 temp_data(np.array([12, 18, 22, 28, 30, 35]))
 
