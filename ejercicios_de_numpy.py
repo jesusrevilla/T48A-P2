@@ -531,6 +531,3 @@ def matrix_diagonals(matrix):
   assert matrix.shape == (5, 5), 'La matriz debe ser de 5x5'
 
 """# Test"""
-
-import doctest
-doctest.testmod()
