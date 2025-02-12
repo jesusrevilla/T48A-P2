@@ -20,7 +20,7 @@ class TestNumpyExercises(unittest.TestCase):
         '''TODO: reemplaza prueba por números flotantes entre 0 y 1 y logitud de ndarray'''
         np.random.seed(10)
         result = rand_float()
-        assert result.size == 10
+        assert result.size == 5
         assert result.dtype == float64
 
     def test_first_10_primes(self):
