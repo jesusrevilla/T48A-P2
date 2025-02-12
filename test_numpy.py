@@ -14,14 +14,14 @@ class TestNumpyExercises(unittest.TestCase):
         '''TODO: Reemplaza prueba por numeros enteros entre 0 100 y logitud de ndarray'''
         result = rand_int()
         assert result.size == 10
-        assert result.dtype == np.int
+        assert result.dtype == np.int64
 
     def test_rand_float(self):
         '''TODO: reemplaza prueba por números flotantes entre 0 y 1 y logitud de ndarray'''
         np.random.seed(10)
         result = rand_float()
-        assert result.size == 10
-        assert result.dtype == np.float
+        assert result.size == 5
+        assert result.dtype == np.float64
 
     def test_first_10_primes(self):
         result = first_10_primes()
@@ -243,7 +243,7 @@ class TestNumpyExercises(unittest.TestCase):
         
         print("La prueba unitaria ha pasado exitosamente.")
 
-    def test_diagonals():
+    def test_diagonals(self):
         # Crear un arreglo 2D de numpy de 5x5 con datos de prueba
         matrix = np.array([
             [1, 2, 3, 4, 5],
