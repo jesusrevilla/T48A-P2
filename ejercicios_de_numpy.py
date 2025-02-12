@@ -195,7 +195,7 @@ def divide_arrays(arr1, arr2):
   assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
   assert np.all(arr1 != 0), 'No se puede dividir por cero'
 
-  return arr2 / arr1
+  return arr1 / arr2
 
 divide_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
 
