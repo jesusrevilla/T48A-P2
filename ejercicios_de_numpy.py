@@ -581,7 +581,7 @@ def image_thresholding(image):
   image: numpy.ndarray
     arreglo 2D de numpy de una imagen en escala de grises.
   '''
-  threshold = 128
+  threshold = 127
 
     # Crear una máscara booleana para seleccionar los píxeles con valor mayor que el umbral
   thresholded_image = np.where(image > threshold, 255, 0)
