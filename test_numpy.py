@@ -21,7 +21,7 @@ class TestNumpyExercises(unittest.TestCase):
         np.random.seed(10)
         result = rand_float()
         assert result.size == 10
-        assert result.dtype == np.float
+        assert result.dtype == float64
 
     def test_first_10_primes(self):
         result = first_10_primes()
