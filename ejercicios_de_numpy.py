@@ -509,8 +509,11 @@ def temp_data(temps):
   '''
   mask_above_25 = temps > 25
   mask_below_15 = temps < 15
-  print(f'Temperaturas mayores a 25 grados: {temps[mask_above_25]}')
-  print(f'Número de días con temperatura menor a 15 grados: {np.sum(mask_below_15)}')
+  temps_above_25 = temps[mask_above_25]
+  days_below_15 = np.sum(mask_below_15)
+
+  print(f'Temperaturas mayores a 25 grados: {temps_above_25}')
+  print(f'Número de días con temperaturas menores a 15 grados: {days_below_15}')
 
 temp_data(np.array([10, 12, 14, 16, 18, 20, 6, 25, 30]))
 
