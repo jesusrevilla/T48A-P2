@@ -8,7 +8,10 @@ def rand_int():
   return arr_int
 
 def rand_float():
-  return np.random.rand(5)
+  arr = np.random.rand(5) 
+  arr_float = arr.astype(np.float64)
+
+  return arr_float
 
 
 def first_10_primes():
