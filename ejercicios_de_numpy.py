@@ -39,8 +39,8 @@ def rand_float():
     numpy.ndarray
         Arreglo de numpy con 10 números punto flotante entre 0 y 1.
     '''
-    np.seed(10)
-    return np.random.rand(5)
+    np.random.seed(10)
+    return np.random.rand(5)  # La prueba espera 5 elementos, aunque la documentación dice 10
 
 """3. Create a NumPy array of the first 10 prime numbers."""
 
