@@ -45,7 +45,7 @@ np.random.randint(0,101, size=10)
 
 def rand_float():
   np.random.seed(10)
-  return np.random.rand(5)
+  return np.random.rand(10)
   '''Regresa un arreglo de numpy con 5 números punto flotante entre 0 y 1.
   Para poder mantener la generación de números aleatorios
   fija, en los ejemplos, se utiliza un seed.
