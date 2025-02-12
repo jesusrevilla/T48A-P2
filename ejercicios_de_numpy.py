@@ -62,6 +62,7 @@ def rand_float():
   >>> rand_float()
   array([0.77132064, 0.02075195, 0.63364823, 0.74880388, 0.49850701])
   '''
+  np.random.seed(10)
   return np.random.rand(5)
 
 np.random.seed(10)
