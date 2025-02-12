@@ -104,13 +104,13 @@ def temp_data(temps):
   days = np.count_nonzero(mask_below_15)
 
 def rainfall_data(rainfall):
-  mask_above_100 = rainfall >= 100
+  mask_above_100 = rainfall > 100
   cities = np.any(mask_above_100, axis=1)
   index_cities = np.where(cities)[0]
   return index_cities
 
 def image_thresholding(image):
-  mask = image > 128
+  mask = image >= 128
   binary_image = np.zeros_like(image)
   binary_image[mask] = 255
   return binary_image
