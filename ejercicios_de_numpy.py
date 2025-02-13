@@ -613,12 +613,10 @@ def temp_data(temps):
     temps: numpy.ndarray
         Arreglo de numpy de temperaturas en Celsius.
     '''
-    temperaturas_mayores_25 = temps[temps > 25]
-    dias_temp_meno_15 = np.sum(temps <= 15)
-
-    print(f"Temperaturas mayores a 25 grados: [{' '.join(map(str, temperaturas_mayores_25))}]")
-    print(f"Número de días con temperatura menor a 15 grados: {dias_temp_meno_15}")
-
+    high_temps = temps[temps > 25]
+    low_temp_days = np.sum(temps <= 15)
+    print(f"Temperaturas mayores a 25 grados: [{' '.join(map(str, high_temps))}]")
+    print(f"Número de días con temperatura menor a 15 grados: {low_temp_days}")
 """2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
 
 def rainfall_data(rainfall):
