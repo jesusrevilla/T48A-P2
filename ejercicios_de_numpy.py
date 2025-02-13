@@ -227,8 +227,8 @@ def first_5(arr):
     - arr.size == 10
   '''
   arr = np.random.randint(0, 100, 10)
+
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
-  print(arr)
   return arr[:5]
 
 first_5(np.random.randint(0, 100, 10))
@@ -292,9 +292,9 @@ def greater_50(arr):
   ------------
     - arr.size == 10
   '''
-  arr = np.random.randint(1,100,10)
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
-  print (arr)
+  arr = np.random.randint(0,100,10)
+  assert arr.size == 10, 'El arreglo debe tener 10 elementos'
   return arr[arr >50]
 
 greater_50(np.random.randint(1, 100, 10))
@@ -514,11 +514,7 @@ def element_wise_product(arr1, arr2):
   arr2: numpy.ndarray
     arreglo de numpy de forma (2, 3).
   '''
-  arr1 = np.array([[1, 1, 1], [1, 1, 1]])
-  arr2 = np.array([[7, 8, 9], [10, 11, 12]])
   return arr1 * arr2
-
-element_wise_product(np.array([[1, 1, 1], [1, 1, 1]]), np.array([[7, 8, 9], [10, 11, 12]]))
 
 """### Boolean Arrays and Masks
 
