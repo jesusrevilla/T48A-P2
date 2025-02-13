@@ -525,71 +525,15 @@ element_wise_product(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[7, 8, 9], [10,
 """
 
 def temp_data(temps):
-    '''Devuelve las temperaturas mayores a 25 grados y el número de
-    días con temperaturas menores a 15 grados.
-
-    Parameters
-    ----------
-    temps: numpy.ndarray
-        arreglo de numpy de temperaturas en Celsius.
-    '''
-    # Máscara de temperaturas mayores a 25 grados
-    mask_above_25 = temps > 25
-
-    # Filtrar las temperaturas mayores a 25 grados
-    high_temps = temps[mask_above_25]
-
-    # Contar el número de días con temperaturas menores a 15 grados
-    count_below_15 = np.sum(temps < 15)
-
-    # Formatear la salida manualmente sin corchetes adicionales ni comas
-    high_temps_str = " ".join(map(str, high_temps))
-
-    # Crear la salida en el formato exacto esperado
-    return f"Temperaturas mayores a 25 grados: [{high_temps_str}]\nNúmero de días con temperatura menor a 15 grados: {count_below_15}"
-
-# Ejemplo de uso:
-output = temp_data(np.array([30, 35, 28, 14, 18, 7, 22, 11]))
-print(output)
-
-"""2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
+    mayores_25 = temps[temps > 25]
+    print(f"Temperaturas mayores a 25 grados: {mayores_25}")
+    dias_menores_15 = np.sum(temps <= 15)
+    dias_menores_15 = np.sum(temps < 15)
+    print(f"Número de días con temperatura menor a 15 grados: {dias_menores_15}")
 
 def rainfall_data(rainfall):
-    '''Imprime los índices de las ciudades que tuvieron más de 100 mm de lluvia.
+    print("Índices de las ciudades con más de 100 mm de lluvia:", np.where(rainfall > 100)[0])
 
-    Parameters
-    ----------
-    rainfall: numpy.ndarray
-        arreglo 2D de numpy de lluvia en mm y ciudades.
-    '''
-    # Máscara para encontrar valores mayores a 100 mm en cualquier mes
-    mask_above_100 = rainfall > 100
-
-    # Encontrar las ciudades (filas) que cumplen con la condición de tener más de 100 mm en algún mes
-    cities_with_rain_above_100 = np.any(mask_above_100, axis=1)
-
-    # Obtener los índices de las ciudades que cumplen con la condición
-    indices = np.where(cities_with_rain_above_100)[0]
-
-    # Crear la salida en el formato exacto esperado
-    # Convertir los índices en formato de texto y asegurarse de que estén entre corchetes y separados por un espacio
-    result = f"Índices de las ciudades con más de 100 mm de lluvia: [{ ' '.join(map(str, indices)) }]"
-
-    return result
-
-# Ejemplo de uso:
-output = rainfall_data(np.array([
-    [50, 120, 30],  # Ciudad 0 (tuvo más de 100 mm en el segundo mes)
-    [10, 60, 80],   # Ciudad 1 (no superó 100 mm en ningún mes)
-    [200, 110, 130],  # Ciudad 2 (tuvo más de 100 mm en todos los meses)
-    [95, 20, 60],    # Ciudad 3 (no superó 100 mm en ningún mes)
-    [105, 50, 60],   # Ciudad 4 (tuvo más de 100 mm en el primer mes)
-    [60, 120, 90],   # Ciudad 5 (tuvo más de 100 mm en el segundo mes)
-    [80, 30, 110],   # Ciudad 6 (tuvo más de 100 mm en el tercer mes)
-    [200, 180, 150], # Ciudad 7 (tuvo más de 100 mm en todos los meses)
-    [55, 130, 120]   # Ciudad 8 (tuvo más de 100 mm en el segundo y tercer mes)
-]))
-print(output)
 
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
 
