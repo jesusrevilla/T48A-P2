@@ -524,7 +524,7 @@ rainfall_data(np.array([[10, 20, 30], [40, 50, 60], [70, 80, 90]]))
 
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
 
-def image_thresholding(image):
+def image_thresholding(image, threshold=128):
   '''Genera un arreglo de numpy en blanco y negro.
 
   Parameters
@@ -532,10 +532,8 @@ def image_thresholding(image):
   image: numpy.ndarray
     arreglo 2D de numpy de una imagen en escala de grises.
   '''
-  mask = image > 128
-  image[mask] = 255
-  image[~mask] = 0
-  return image
+  binary_image = np.where(image >= threshold, 255, 0)
+  return binary_image
 
 image_thresholding(np.array([[100, 200, 30], [240, 50, 160], [170, 80, 190]]))
 
