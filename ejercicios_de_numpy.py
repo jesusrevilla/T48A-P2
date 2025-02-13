@@ -563,10 +563,10 @@ def temp_data(temps):
     arreglo de numpy de temperaturas en Celsius.
   '''
   high_temps = temps[temps > 25]
-  print("Temperaturas mayores a 25 grados:", high_temps)
-  low_temps_count = np.sum(temps < 15)
+  print(f"Temperaturas mayores a 25 grados: {high_temps}")
+  low_temps_count = np.sum(temps <= 15)
   print(f"Número de días con temperatura menor a 15 grados: {low_temps_count}")
-
+    
 temps = np.array([22, 28, 18, 30, 25, 15, 12, 20, 32, 26])
 temp_data(temps)
 
