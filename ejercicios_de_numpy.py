@@ -57,7 +57,7 @@ def rand_float():
   >>> rand_float()
   array([0.77132064, 0.02075195, 0.63364823, 0.74880388, 0.49850701])
   '''
-  return np.random.rand(10)
+  return np.random.rand(5)
 
 np.random.seed(10)
 rand_float().__repr__()
@@ -469,8 +469,8 @@ def add_broadcast(arr1, arr2):
   '''
   return arr1 + arr2
 
-arr1 = np.array([2, 3, 4],[2, 3, 4])
-arr2 = np.array([2])
+arr1 = np.array([1, 2])
+arr2 = np.array([3, 4])
 add_broadcast(arr1, arr2).__repr__()
 
 """2. Subtract a NumPy array of shape (3, 2) from a NumPy array of shape (2, 3)."""
@@ -488,8 +488,8 @@ def subtract_broadcast(arr1, arr2):
   '''
   return arr1 - arr2
 
-arr1 = np.array([3, 2], [3, 2], [3, 2])
-arr2 = np.array([2, 3, 4], [2, 3, 4])
+arr1 = np.array([1, 2])
+arr2 = np.array([3, 4])
 subtract_broadcast(arr1, arr2).__repr__()
 
 """3. Multiply a NumPy array of shape (2, 3) by a NumPy array of shape (3, 2)."""
@@ -524,8 +524,8 @@ def divide_broadcast(arr1, arr2):
   '''
   return arr1 / arr2
 
-arr1 = np.array([2, 3, 4], [2, 3, 4])
-arr2 = np.array([2],[3])
+arr1 = np.array([1, 2])
+arr2 = np.array([3, 4])
 divide_broadcast(arr1, arr2).__repr__()
 
 """5. Calculate the element-wise product of two NumPy arrays of shape (2, 3)."""
@@ -569,6 +569,7 @@ temp_data(arr).__repr__()
 """2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
 
 def rainfall_data(rainfall):
+
   '''Imprime los índices de las ciudades que tuvieron más de 100 mm de lluvia
 
   Parameters
@@ -577,14 +578,14 @@ def rainfall_data(rainfall):
     arreglo 2D de numpy de lluvia en mm y ciudades.
   '''
 
-  return np.where(np.any(rainfall > 100, axis=1))[0]
+  return np.where(rainfall[:,0].astype(float)>100)
 
 rf = np.array([
-    [50, 60, 70, 80, 90],
-    [120, 90, 80, 70, 60],
-    [60, 70, 80, 90, 100],
-    [110, 130, 120, 110, 100],
-    [70, 80, 90, 100, 110]
+    [50, "a"],
+    [120, "b"],
+    [60, "c"],
+    [110, "d"],
+    [70, "e"]
 ])
 rainfall_data(rf).__repr__()
 
@@ -602,7 +603,8 @@ def image_thresholding(image):
   image[image < 128] = 0
   return image
 
-image_thresholding(rf).__repr__()
+array = np.random.randint(0, 256, size=(5, 5))
+image_thresholding(array).__repr__()
 
 """### Fancy Indexing
 
@@ -622,6 +624,14 @@ def matrix_diagonals(matrix):
     - matrix.shape == (5, 5)
   '''
   assert matrix.shape == (5, 5), 'La matriz debe ser de 5x5'
+  rows, cols = array.shape
+  #print(rows)
+  #print(cols)
+  main_diagonal = array[np.arange(rows), np.arange(cols)]
+  anti_diagonal = array[np.arange(rows), np.arange(cols - 1, -1, -1)]
+  return main_diagonal, anti_diagonal
+
+matrix_diagonals(array).__repr__()
 
 import doctest
 doctest.testmod()
