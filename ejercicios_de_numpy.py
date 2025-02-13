@@ -96,7 +96,7 @@ def element_wise_product(arr1, arr2):
 def temp_data(temps):
     mayores_25 = temps[temps > 25]
     print(f"Temperaturas mayores a 25 grados: {mayores_25}")
-    dias_menores_15 = np.sum(temps <= 15)
+    dias_menores_15 = np.sum(temps < 15)
     print(f"Número de días con temperatura menor a 15 grados: {dias_menores_15}")
 
 def rainfall_data(rainfall):
