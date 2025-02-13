@@ -268,7 +268,6 @@ def less_7(arr):
     - arr.size == 10
   '''
   assert arr.size == 10, 'El arreglo (arr) debe tener 10 elementos'
-  arr = np.random.randint(0, 11, size=10)
   return arr[arr <= 7]
 
 """### NumPy Array Reshaping
