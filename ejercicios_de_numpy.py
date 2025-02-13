@@ -165,7 +165,7 @@ def divide_arrays(arr1, arr2):
     - arr2.any(0)
   '''
   assert arr1.any(0), 'No se puede dividir por cero'
-  return arr2 / arr1
+  return np.divide(arr1, arr2)
 
 divide_arrays(np.array([5, 5, 6]), np.array([2, 2, 2]))
 
