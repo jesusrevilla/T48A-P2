@@ -178,7 +178,7 @@ def divide_arrays(arr1, arr2):
     - arr2.any(0)
   '''
   assert arr1.any(0), 'No se puede dividir por cero'
-  return arr2 / arr1
+  return arr1/ arr2
 
 divide_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
 
@@ -441,7 +441,7 @@ def add_broadcast(arr1, arr2):
   arr2: numpy.nd.array
     arreglo de numpy de forma (2, 1).
   '''
-  arr1 = np.array([[0, 0, 0], [4, 5, 6]])
+  arr1 = np.array([[1,2,3], [4, 5, 6]])
   arr2 = np.array([[1], [2]])
   return arr1 + arr2
 
@@ -514,11 +514,11 @@ def element_wise_product(arr1, arr2):
   arr2: numpy.ndarray
     arreglo de numpy de forma (2, 3).
   '''
-  arr1 = np.array([[1, 2, 3], [4, 5, 6]])
+  arr1 = np.array([[1, 1, 1], [1, 1, 1]])
   arr2 = np.array([[7, 8, 9], [10, 11, 12]])
   return arr1 * arr2
 
-element_wise_product(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[7, 8, 9], [10, 11, 12]]))
+element_wise_product(np.array([[1, 1, 1], [1, 1, 1]]), np.array([[7, 8, 9], [10, 11, 12]]))
 
 """### Boolean Arrays and Masks
 
