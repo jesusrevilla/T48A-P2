@@ -1264,7 +1264,7 @@ def rainfall_data(rainfall):
     arreglo 2D de numpy de lluvia en mm y ciudades.
     
   '''
-  return f"Índices de las ciudades con más de 100 mm de lluvia: {np.where(rainfall > 100)[0])}"
+  print("Índices de las ciudades con más de 100 mm de lluvia:", np.where(rainfall > 100)[0])
 
 rainfall_data(np.array([[100, 200, 300], [400, 500, 600]]))
 
