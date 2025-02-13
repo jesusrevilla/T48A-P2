@@ -527,8 +527,8 @@ def divide_broadcast(arr1, arr2):
   '''
   return arr1 / arr2
 
-arr1 = np.array([1, 2])
-arr2 = np.array([3, 4])
+arr1 = np.array([[1, 2, 3],[1, 2, 4]])
+arr2 = np.array([[3],[4]])
 divide_broadcast(arr1, arr2).__repr__()
 
 """5. Calculate the element-wise product of two NumPy arrays of shape (2, 3)."""
@@ -606,6 +606,7 @@ def image_thresholding(image):
   image[image < 128] = 0
   return image
 
+np.random.seed(10)
 array = np.random.randint(0, 256, size=(5, 5))
 image_thresholding(array).__repr__()
 
@@ -633,7 +634,8 @@ def matrix_diagonals(matrix):
   main_diagonal = array[np.arange(rows), np.arange(cols)]
   anti_diagonal = array[np.arange(rows), np.arange(cols - 1, -1, -1)]
   return main_diagonal, anti_diagonal
-
+    
+np.random.seed(10)
 array = np.random.randint(0, 256, size=(5, 5))
 matrix_diagonals(array).__repr__()
 
