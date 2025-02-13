@@ -84,14 +84,14 @@ def first_10_primes():
 def squares():
   '''Regresa un arreglo de numpy con los cuadrados de los números del 1 al 10.
   '''
-  return square
+  return np.array([i**2 for i in range(1, 11)])
 
 """5. Create a NumPy array of the cubes of the numbers from 1 to 10."""
 
 def cubes():
   '''Regresa un arreglo de numpy con los cubos de los números del 1 al 10.
   '''
-  return cube
+  return np.array([i**3 for i in range(1, 11)])
 
 """### NumPy Array Operations
 
@@ -133,14 +133,14 @@ def add_arrays(arr1, arr2):
 def subtract_arrays(arr1, arr2):
   '''Calcula arr2 menos arr1 (arreglos de numpy).
   '''
-  return arr2 - arr1
+  return arr1 - arr2
 
 """3. Multiply two NumPy arrays together (element-wise)."""
 
 def multiply_arrays(arr1, arr2):
   '''Multiplica dos arreglos de numpy elemento por elemento.
   '''
-  return arr2 * arr1
+  return arr1 * arr2
 
 """4. Divide two NumPy arrays by each other (element-wise)."""
 
@@ -151,8 +151,8 @@ def divide_arrays(arr1, arr2):
   ------------
     - arr2.any(0)
   '''
-  assert arr1.any(0), 'No se puede dividir por cero'
-  return arr2 / arr1
+  assert arr2.any(), 'No se puede dividir por cero'
+  return arr1 / arr2
 
 """5. Create a NumPy array of the integer numbers from 1 to 5. Calculate the mean, median, and standard deviation."""
 
@@ -175,7 +175,6 @@ def stats(arr):
     - arr.size == 5
   '''
   assert arr.size == 5, 'El arreglo debe tener 5 elementos'
-  arr = np.array([1, 2, 3, 4, 5])
   return (np.mean(arr), np.median(arr), np.std(arr))
 
 """### NumPy Array Indexing and Slicing
@@ -197,7 +196,6 @@ def first_5(arr):
     - arr.size == 10
   '''
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
-  arr = np.random.randint(0, 101, size=10)
   return arr[:5]
 
 """2. Create a NumPy array of 10 random integers between 0 and 100. Select the last 3 elements of the array."""
@@ -216,7 +214,6 @@ def last_3(arr):
     - arr.size == 10
   '''
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
-  arr = np.random.randint(0, 101, size=10)
   return arr[-3:]
 
 """3. Create a NumPy array of 10 random integers between 0 and 100. Select the elements at indices 2, 4, and 6."""
@@ -294,7 +291,6 @@ def reshape_2x6(arr):
     - arr.size == 12
   '''
   assert arr.size == 12, 'El arreglo (arr) debe tener 12 elementos'
-  arr = np.arange(12)
   return arr.reshape(2, 6)
 
 """2. Create a NumPy array of 24 numbers. Reshape the array into a 2x3x4 tensor."""
@@ -312,7 +308,6 @@ def reshape_2x3x4(arr):
     - arr.size == 24
   '''
   assert arr.size == 24, 'El arreglo (arr) debe tener 24 elementos'
-  arr = np.arange(24)
   return arr.reshape(2, 3, 4)
 
 """3. Create a NumPy array of 100 numbers. Reshape the array into a 10x10 matrix."""
@@ -330,7 +325,6 @@ def reshape_10x10(arr):
     - arr.size == 100
   '''
   assert arr.size == 100, 'El arreglo (arr) debe tener 100 elementos'
-  arr = np.arange(100)
   return arr.reshape(10, 10)
 
 """4. Create a NumPy array of 1000 numbers. Reshape the array into a 10x10x10 tensor."""
@@ -349,7 +343,6 @@ def reshape_10x10x10(arr):
     - arr.size == 1000
   '''
   assert arr.size == 1000, 'El arreglo (arr) debe tener 1000 elementos'
-  arr = np.arange(1000)
   return arr.reshape(10, 10, 10)
 
 """5. Create a NumPy array of 10000 numbers. Reshape the array into a 10x10x10x10 tensor."""
@@ -368,7 +361,6 @@ def reshape_10x10x10x10(arr):
     - arr.size == 10000
   '''
   assert arr.size == 10000, 'El arreglo (arr) debe tener 10000 elementos'
-  arr = np.arange(1000)
   return arr.reshape(10, 10, 10, 10)
 
 """### NumPy Array Broadcasting
@@ -386,8 +378,6 @@ def add_broadcast(arr1, arr2):
   arr2: numpy.nd.array
     arreglo de numpy de forma (2, 1).
   '''
-  arr1 = np.array([[1, 2, 3], [4, 5, 6]])
-  arr2 = np.array([[10], [20]])
   return arr1 + arr2
 
 """2. Subtract a NumPy array of shape (3, 2) from a NumPy array of shape (2, 3)."""
@@ -403,9 +393,8 @@ def subtract_broadcast(arr1, arr2):
   arr2: numpy.ndarray
     arreglo de numpy de forma (2, 3).
   '''
-  arr1 = np.array([[1, 2], [3, 4], [5, 6]])
-  arr2 = np.array([[10, 20, 30], [40, 50, 60]])
-  return arr1 - arr2
+
+  return arr1 - arr2.T
 
 """3. Multiply a NumPy array of shape (2, 3) by a NumPy array of shape (3, 2)."""
 
@@ -419,9 +408,8 @@ def multiply_broadcast(arr1, arr2):
   arr2: numpy.ndarray
     arreglo de numpy de forma (3, 2).
   '''
-  arr1 = np.array([[1, 2, 3], [4, 5, 6]])
-  arr2 = np.array([[10, 20], [30, 40], [50, 60]])
-  return arr1 * arr2
+
+  return arr1 @ arr2
 
 """4. Divide a NumPy array of shape (2, 3) by a NumPy array of shape (2, 1)."""
 
@@ -435,8 +423,6 @@ def divide_broadcast(arr1, arr2):
   arr2: numpy.ndarray
     arreglo de numpy de forma (2, 1).
   '''
-  arr1 = np.array([[1, 2, 3], [4, 5, 6]])
-  arr2 = np.array([[10], [20]])
   return arr1 / arr2
 
 """5. Calculate the element-wise product of two NumPy arrays of shape (2, 3)."""
@@ -469,8 +455,10 @@ def temp_data(temps):
   temps: numpy.ndarray
     arreglo de numpy de temperaturas en Celsius.
   '''
-  print(temps[temps > 25])
-  print(np.sum(temps < 15))
+  mayores = temps[temps > 25]
+  menores = np.sum(temps < 15)
+  print(f"Temperaturas mayores a 25 grados: {mayores}")
+  print(f"Número de días con temperatura menor a 15 grados: {menores}")
 
 """2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
 
@@ -482,7 +470,9 @@ def rainfall_data(rainfall):
   rainfall: numpy.ndarray
     arreglo 2D de numpy de lluvia en mm y ciudades.
   '''
-  return np.where(rainfall > 100)
+  ciudades = np.any(rainfall > 100, axis=1)
+  indices = np.where(ciudades)[0]
+  print(f"Índices de las ciudades con más de 100 mm de lluvia: {indices}")
 
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
 
@@ -494,7 +484,7 @@ def image_thresholding(image):
   image: numpy.ndarray
     arreglo 2D de numpy de una imagen en escala de grises.
   '''
-  return np.where(image > 128, 255, 0)
+  return np.where(image >= 128, 255, 0)
 
 """### Fancy Indexing
 
