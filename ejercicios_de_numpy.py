@@ -232,7 +232,6 @@ def indices_2_4_6(arr):
     - arr.size == 10
   '''
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
-  arr = np.random.randint(0, 101, size=10)
   return arr[[2, 4, 6]]
 
 """4. Create a NumPy array of 10 random integers between 0 and 100. Select the elements with values greater than 50."""
@@ -251,7 +250,6 @@ def greater_50(arr):
     - arr.size == 10
   '''
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
-  arr = np.random.randint(0, 101, size=10)
   return arr[arr > 50]
 
 """5. Create a NumPy array of 10 random integers between 0 and 10. Select elements less than or equal to 7."""
@@ -437,8 +435,6 @@ def element_wise_product(arr1, arr2):
   arr2: numpy.ndarray
     arreglo de numpy de forma (2, 3).
   '''
-  arr1 = np.array([[1, 2, 3], [4, 5, 6]])
-  arr2 = np.array([[10, 20, 30], [40, 50, 60]])
   return arr1 * arr2
 
 """### Boolean Arrays and Masks
@@ -472,7 +468,7 @@ def rainfall_data(rainfall):
   '''
   ciudades = np.any(rainfall > 100, axis=1)
   indices = np.where(ciudades)[0]
-  print(f"Índices de las ciudades con más de 100 mm de lluvia: {indices}")
+  print(f"Indices de las ciudades con más de 100 mm de lluvia: {indices}")
 
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
 
