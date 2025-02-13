@@ -102,15 +102,18 @@ def element_wise_product(arr1, arr2):
   return arr1 * arr2
 
 def temp_data(temps):
-  mask_above_25 = temps >= 25 #Condicion mayor a 25 Grados celsius
-  mask_below_15 = temps <= 15 #Condicion menor a 15 Grados celsius
+  mask_above_25 = temps > 25 #Condicion mayor a 25 Grados celsius
+  mask_below_15 = temps < 15 #Condicion menor a 15 Grados celsius
   days = np.count_nonzero(mask_below_15)
+
+  return f"Temperaturas mayores a 25 grados: {temps[mask_above_25]}\nDias con temperaturas menores a 15 grados: {days}"
+
+  
 
 def rainfall_data(rainfall):
   mask_above_100 = rainfall > 100
-  cities = np.any(mask_above_100, axis=1)
-  index_cities = np.where(cities)[0]
-  return index_cities
+  index_cities = np.where(mask_above_100)[0]
+  return f"Índices de las ciudades con más de 100 mm de lluvia: {index_cities}"
 
 def image_thresholding(image):
   mask = image >= 128
