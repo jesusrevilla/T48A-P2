@@ -267,8 +267,8 @@ def divide_arrays(arr1, arr2):
   array([2. , 2.5, 3. ])
   '''
   assert arr1.any(0), 'No se puede dividir por cero'
-  return arr2 / arr1
-
+  return np.divide(arr2, arr1)
+    
 divide_arrays(np.array([2, 2, 2]), np.array([4, 5, 6]))
 
 arr1 = np.array([2, 2, 2])
