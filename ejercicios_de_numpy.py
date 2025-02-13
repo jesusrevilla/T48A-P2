@@ -258,21 +258,21 @@ def divide_arrays(arr1, arr2):
 
   Examples
   ------------
-  >>> divide_arrays(np.array([4, 5, 6]), np.array([2, 2, 2]))
-  array([0.5       , 0.4       , 0.33333333])
+  >>> divide_arrays(np.array([2, 2, 2]), np.array([4, 5, 6]))
+  array([2. , 2.5, 3. ])
 
-  >>> arr1 = np.array([4, 5, 6])
-  >>> arr2 = np.array([2, 2, 2])
+  >>> arr1 = np.array([2, 2, 2])
+  >>> arr2 = np.array([4, 5, 6])
   >>> divide_arrays(arr1, arr2)
-  array([0.5       , 0.4       , 0.33333333])
+  array([2. , 2.5, 3. ])
   '''
   assert arr1.any(0), 'No se puede dividir por cero'
   return arr2 / arr1
 
-divide_arrays(np.array([4, 5, 6]), np.array([2, 2, 2]))
+divide_arrays(np.array([2, 2, 2]), np.array([4, 5, 6]))
 
-arr1 = np.array([4, 5, 6])
-arr2 = np.array([2, 2, 2])
+arr1 = np.array([2, 2, 2])
+arr2 = np.array([4, 5, 6])
 divide_arrays(arr1, arr2)
 
 """5. Create a NumPy array of the integer numbers from 1 to 5. Calculate the mean, median, and standard deviation."""
@@ -1300,15 +1300,16 @@ def image_thresholding(image):
 
   Examples
   --------
-  >>> image_thresholding(np.array([[100, 200, 300], [400, 50, 600]]))
-  array([[  0, 255, 255],
-         [255,   0, 255]])
+  >>> image_thresholding(np.array([[100, 150, 200], [50, 125, 175], [0, 255, 128]]))
+  array([[0, 255, 255],
+         [0, 0, 255],
+         [0, 255, 255]])
   '''
   image[image > 128] = 255
   image[image <= 128] = 0
   return image
 
-image_thresholding(np.array([[100, 200, 300], [400, 50, 600]]))
+image_thresholding(np.array([[100, 150, 200], [50, 125, 175], [0, 255, 128]]))
 
 """### Fancy Indexing
 
