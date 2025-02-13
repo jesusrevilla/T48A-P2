@@ -106,12 +106,12 @@ def temp_data(temps):
   mask_below_15 = temps < 15 #Condicion menor a 15 Grados celsius
   days = np.count_nonzero(mask_below_15)
 
-  return f"Temperaturas mayores a 25 grados: {temps[mask_above_25]} Número de días con temperatura menor a 15 grados: {days}"
+  print (f"Temperaturas mayores a 25 grados: {temps[mask_above_25]} Número de días con temperatura menor a 15 grados: {days}")
 
 def rainfall_data(rainfall):
   mask_above_100 = rainfall > 100
   index_cities = np.flatnonzero(mask_above_100)
-  return f"Índices de las ciudades con más de 100 mm de lluvia: {index_cities}" 
+  print("Índices de las ciudades con más de 100 mm de lluvia: {index_cities}")
 
 def image_thresholding(image):
   mask = image >= 128
