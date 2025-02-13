@@ -555,7 +555,7 @@ print(output)
 """2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
 
 def rainfall_data(rainfall):
-    '''Imprime los índices de las ciudades que tuvieron más de 100 mm de lluvia
+    '''Imprime los índices de las ciudades que tuvieron más de 100 mm de lluvia.
 
     Parameters
     ----------
@@ -582,7 +582,12 @@ output = rainfall_data(np.array([
     [50, 120, 30],  # Ciudad 0 (tuvo más de 100 mm en el segundo mes)
     [10, 60, 80],   # Ciudad 1 (no superó 100 mm en ningún mes)
     [200, 110, 130],  # Ciudad 2 (tuvo más de 100 mm en todos los meses)
-    [95, 20, 60]    # Ciudad 3 (no superó 100 mm en ningún mes)
+    [95, 20, 60],    # Ciudad 3 (no superó 100 mm en ningún mes)
+    [105, 50, 60],   # Ciudad 4 (tuvo más de 100 mm en el primer mes)
+    [60, 120, 90],   # Ciudad 5 (tuvo más de 100 mm en el segundo mes)
+    [80, 30, 110],   # Ciudad 6 (tuvo más de 100 mm en el tercer mes)
+    [200, 180, 150], # Ciudad 7 (tuvo más de 100 mm en todos los meses)
+    [55, 130, 120]   # Ciudad 8 (tuvo más de 100 mm en el segundo y tercer mes)
 ]))
 print(output)
 
