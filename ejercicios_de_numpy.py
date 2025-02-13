@@ -580,15 +580,8 @@ def rainfall_data(rainfall):
   rainfall: numpy.ndarray
     arreglo 2D de numpy de lluvia en mm y ciudades.
   '''
-  print("Índices de las ciudades con más de 100 mm de lluvia:", np.where(rainfall > 100)[0])
+  print("Índices de las ciudades con más de 100 mm de lluvia:", np.where(rainfall > 100)[0]
 
-rainfall = np.array([
-    [50, 60, 70, 80, 90, 110],  # DATOS CIUDAD 1
-    [30, 40, 50, 60, 70, 80],   # DATOS CIUDAD 2
-    [80, 90, 100, 110, 120, 130] # DATOS CIUDAD 3
-])
-
-rainfall_data(rainfall)
 
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
 
