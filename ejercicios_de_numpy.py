@@ -562,7 +562,7 @@ def rainfall_data(rainfall):
     rainfall: numpy.ndarray
         arreglo 2D de numpy de lluvia en mm y ciudades.
     '''
-    # Máscara de lluvia mayor a 100 mm
+    # Máscara para encontrar valores mayores a 100 mm en cualquier mes
     mask_above_100 = rainfall > 100
 
     # Encontrar las ciudades (filas) que cumplen con la condición de tener más de 100 mm en algún mes
@@ -571,11 +571,11 @@ def rainfall_data(rainfall):
     # Obtener los índices de las ciudades que cumplen con la condición
     indices = np.where(cities_with_rain_above_100)[0]
 
-    # Formatear los índices para que aparezcan en el formato correcto, sin comas ni corchetes adicionales
-    indices_str = " ".join(map(str, indices))
-
     # Crear la salida en el formato exacto esperado
-    return f"Índices de las ciudades con más de 100 mm de lluvia: [{indices_str}]"
+    # Convertir los índices en formato de texto y asegurarse de que estén entre corchetes y separados por un espacio
+    result = f"Índices de las ciudades con más de 100 mm de lluvia: [{ ' '.join(map(str, indices)) }]"
+
+    return result
 
 # Ejemplo de uso:
 output = rainfall_data(np.array([
