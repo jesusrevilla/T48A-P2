@@ -544,10 +544,10 @@ def temp_data(temps):
     # Imprimir las temperaturas mayores a 25 grados en el formato esperado
   print(f"Temperaturas mayores a 25 grados: {high_temps}")
 
-    # Imprimir el número de días con temperaturas menores a 15 grados
-  print(f"Número de días con temperaturas menores a 15 grados: {count_below_15}")
+    # Imprimir el número de días con temperaturas menores a 15 grados en el formato exacto
+  print(f"Número de días con temperatura menor a 15 grados: {count_below_15}")
 
-    # Retornar los resultados si es necesario
+    # Retornar los resultados
   return high_temps, count_below_15
 
 temp_data(np.array([12, 18, 26, 30, 10, 5, 28]))
