@@ -533,6 +533,18 @@ def temp_data(temps):
   temps: numpy.ndarray
     arreglo de numpy de temperaturas en Celsius.
   '''
+  import numpy as np
+
+def temp_data(temps):
+    '''Devuelve las temperaturas mayores a 25 grados y el número de
+    días con temperaturas menores a 15 grados.
+
+    Parameters
+    ----------
+    temps: numpy.ndarray
+        arreglo de numpy de temperaturas en Celsius.
+    '''
+    # Máscara de temperaturas mayores a 25 grados
   mask_above_25 = temps > 25
 
     # Filtrar las temperaturas mayores a 25 grados
@@ -541,8 +553,8 @@ def temp_data(temps):
     # Contar el número de días con temperaturas menores a 15 grados
   count_below_15 = np.sum(temps < 15)
 
-    # Usar la representación de arreglo de numpy para mantener los corchetes
-  high_temps_str = np.array2string(high_temps, separator=' ')
+    # Convertir el arreglo a una lista y formatearlo de manera manual
+  high_temps_str = "[" + " ".join(map(str, high_temps)) + "]"
 
     # Retornar el string con el formato exacto que espera la prueba
   return f"Temperaturas mayores a 25 grados: {high_temps_str}\nNúmero de días con temperatura menor a 15 grados: {count_below_15}"
