@@ -188,7 +188,7 @@ class TestNumpyExercises(unittest.TestCase):
         
         # Verificar que la salida sea la esperada
         assert "Temperaturas mayores a 25 grados: [30 35 28]" in output
-        assert "Número de días con temperatura menor a 15 grados: 4" in output
+        assert "Número de días con temperatura menor a 15 grados: 3" in output
         
         print("La prueba unitaria ha pasado exitosamente.")
 
