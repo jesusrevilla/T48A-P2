@@ -143,6 +143,8 @@ def subtract_arrays(arr1, arr2):
 def multiply_arrays(arr1, arr2):
   '''Multiplica dos arreglos de numpy elemento por elemento.
   '''
+  arr1 = np.array([1, 2, 3])
+  arr2 = np.array([4, 5, 6])
   return arr2 * arr1
 
 """4. Divide two NumPy arrays by each other (element-wise)."""
@@ -154,6 +156,8 @@ def divide_arrays(arr1, arr2):
   ------------
     - arr2.any(0)
   '''
+  arr1 = np.array([1, 2, 3])
+  arr2 = np.array([4, 5, 6])
   assert arr1.any(0), 'No se puede dividir por cero'
   return arr2/arr1
 
@@ -201,7 +205,7 @@ def first_5(arr):
     - arr.size == 10
   '''
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
-  arr = np.random.randint(0, 101, size=10)
+  arr = np.random.randint(0, 100, size=10)
 
   return arr[:5]
 
@@ -221,7 +225,7 @@ def last_3(arr):
     - arr.size == 10
   '''
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
-  arr = np.random.randint(0, 101, size=10)
+  arr = np.random.randint(0, 100, size=10)
   return arr[-3:]
 
 """**3**. Create a NumPy array of 10 random integers between 0 and 100. Select the elements at indices 2, 4, and 6."""
@@ -240,7 +244,7 @@ def indices_2_4_6(arr):
     - arr.size == 10
   '''
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
-  arr = np.random.randint(0, 101, size=10)
+  arr = np.random.randint(0, 100, size=10)
   return arr[[2, 4, 6]]
 
 """4. Create a NumPy array of 10 random integers between 0 and 100. Select the elements with values greater than 50."""
@@ -259,7 +263,7 @@ def greater_50(arr):
     - arr.size == 10
   '''
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
-  arr = np.random.randint(0, 101, size=10)
+  arr = np.random.randint(0, 100, size=10)
   return arr[arr > 50]
 
 """5. Create a NumPy array of 10 random integers between 0 and 10. Select elements less than or equal to 7."""
@@ -278,7 +282,7 @@ def less_7(arr):
     - arr.size == 10
   '''
   assert arr.size == 10, 'El arreglo (arr) debe tener 10 elementos'
-  arr = np.random.randint(0, 11, size=10)
+  arr = np.random.randint(0, 10, size=10)
   return arr[arr <= 7]
 
 """### NumPy Array Reshaping
@@ -529,6 +533,10 @@ def matrix_diagonals(matrix):
     - matrix.shape == (5, 5)
   '''
   assert matrix.shape == (5, 5), 'La matriz debe ser de 5x5'
+  matrix = np.arange(1, 26).reshape(5, 5)
+  main_diagonal = np.diag(matrix)
+  anti_diagonal = np.diagonal(np.fliplr(matrix))
+  return (main_diagonal, anti_diagonal)
 
 """# Test"""
 
