@@ -541,7 +541,13 @@ def temp_data(temps):
     # Contar el número de días con temperaturas menores a 15 grados
   count_below_15 = np.sum(temps < 15)
 
-    # Retornar los resultados
+    # Imprimir las temperaturas mayores a 25 grados en el formato esperado
+  print(f"Temperaturas mayores a 25 grados: {high_temps}")
+
+    # Imprimir el número de días con temperaturas menores a 15 grados
+  print(f"Número de días con temperaturas menores a 15 grados: {count_below_15}")
+
+    # Retornar los resultados si es necesario
   return high_temps, count_below_15
 
 temp_data(np.array([12, 18, 26, 30, 10, 5, 28]))
@@ -561,8 +567,11 @@ def rainfall_data(rainfall):
     # Encontrar las ciudades (filas) que cumplen con la condición de tener más de 100 mm en algún mes
   cities_with_rain_above_100 = np.any(mask_above_100, axis=1)
 
-    # Retornar los índices de las ciudades que cumplen con la condición
-  return np.where(cities_with_rain_above_100)[0]
+    # Obtener los índices de las ciudades que cumplen con la condición
+  city_indices = np.where(cities_with_rain_above_100)[0]
+
+    # Imprimir los resultados como una cadena esperada
+  print(f"Índices de las ciudades con más de 100 mm de lluvia: {city_indices}")
 
 rainfall_data(np.array([
     [50, 120, 30],  # Ciudad 0 (tuvo más de 100 mm en el segundo mes)
