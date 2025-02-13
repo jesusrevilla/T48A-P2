@@ -564,14 +564,14 @@ def rainfall_data(rainfall):
   '''
   mask_above_100 = rainfall > 100
 
-    # Encontrar las ciudades (filas) que cumplen con la condición de tener más de 100 mm en algún mes
-  cities_with_rain_above_100 = np.any(mask_above_100, axis=1)
+    # Encontrar los índices de las ciudades y los meses donde se superaron los 100 mm
+  city_indices, _ = np.where(mask_above_100)
 
-    # Obtener los índices de las ciudades que cumplen con la condición
-  city_indices = np.where(cities_with_rain_above_100)[0]
-
-    # Imprimir los resultados como una cadena esperada
+    # Imprimir los índices de las ciudades que cumplen con la condición, permitiendo repeticiones
   print(f"Índices de las ciudades con más de 100 mm de lluvia: {city_indices}")
+
+    # Retornar los índices
+  return city_indices
 
 rainfall_data(np.array([
     [50, 120, 30],  # Ciudad 0 (tuvo más de 100 mm en el segundo mes)
