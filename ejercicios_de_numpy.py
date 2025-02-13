@@ -256,20 +256,9 @@ def divide_arrays(arr1, arr2):
   ------------
     - arr2.any(0)
 
-  Examples
-  ------------
-  >>> divide_arrays(np.array([2, 2, 2]), np.array([4, 5, 6]))
-  array([2. , 2.5, 3. ])
-
-  >>> arr1 = np.array([2, 2, 2])
-  >>> arr2 = np.array([4, 5, 6])
-  >>> divide_arrays(arr1, arr2)
-  array([2. , 2.5, 3. ])
   '''
   assert arr1.any(0), 'No se puede dividir por cero'
-  return np.divide(arr2, arr1)
-    
-divide_arrays(np.array([2, 2, 2]), np.array([4, 5, 6]))
+  return np.divide(arr1, arr2)
 
 arr1 = np.array([2, 2, 2])
 arr2 = np.array([4, 5, 6])
