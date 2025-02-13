@@ -542,35 +542,39 @@ def temp_data(temps):
     # Contar el número de días con temperaturas menores a 15 grados
     count_below_15 = np.sum(temps < 15)
 
-    # Usar la representación estándar de numpy, para mantener el formato exacto
-    high_temps_str = np.array2string(high_temps, separator=' ', formatter={'all': lambda x: str(x)})[1:-1]
+    # Formatear la salida manualmente sin corchetes adicionales ni comas
+    high_temps_str = " ".join(map(str, high_temps))
 
-    # Retornar el string con el formato exacto que espera la prueba
-    return f"Temperaturas mayores a 25 grados: {high_temps_str}\nNúmero de días con temperatura menor a 15 grados: {count_below_15}"
+    # Crear la salida en el formato exacto esperado
+    return f"Temperaturas mayores a 25 grados: [{high_temps_str}]\nNúmero de días con temperatura menor a 15 grados: {count_below_15}"
 
 # Ejemplo de uso:
 output = temp_data(np.array([30, 35, 28, 14, 18, 7, 22, 11]))
 print(output)
+
 """2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
 
 def rainfall_data(rainfall):
-  '''Imprime los índices de las ciudades que tuvieron más de 100 mm de lluvia
+    '''Imprime los índices de las ciudades que tuvieron más de 100 mm de lluvia
 
-  Parameters
-  ----------
-  rainfall: numpy.ndarray
-    arreglo 2D de numpy de lluvia en mm y ciudades.
-  '''
-  mask_above_100 = rainfall > 100
+    Parameters
+    ----------
+    rainfall: numpy.ndarray
+        arreglo 2D de numpy de lluvia en mm y ciudades.
+    '''
+    mask_above_100 = rainfall > 100
 
-    # Encontrar los índices de las ciudades y los meses donde se superaron los 100 mm
-  city_indices, _ = np.where(mask_above_100)
+    # Encontrar las ciudades (filas) que cumplen con la condición de tener más de 100 mm en algún mes
+    cities_with_rain_above_100 = np.any(mask_above_100, axis=1)
 
-    # Imprimir los índices de las ciudades que cumplen con la condición, permitiendo repeticiones
-  print(f"Índices de las ciudades con más de 100 mm de lluvia: {city_indices}")
+    # Retornar los índices de las ciudades que cumplen con la condición
+    indices = np.where(cities_with_rain_above_100)[0]
 
-    # Retornar los índices
-  return city_indices
+    # Convertir los índices en el formato adecuado
+    indices_str = np.array2string(indices, separator=' ')[1:-1]
+
+    # Retornar la salida en el formato correcto
+    return f"Índices de las ciudades con más de 100 mm de lluvia: {indices_str}"
 
 rainfall_data(np.array([
     [50, 120, 30],  # Ciudad 0 (tuvo más de 100 mm en el segundo mes)
