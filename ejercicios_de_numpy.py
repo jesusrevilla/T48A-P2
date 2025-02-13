@@ -167,7 +167,7 @@ def divide_arrays(arr1, arr2):
   assert arr1.any(0), 'No se puede dividir por cero'
   return arr2 / arr1
 
-divide_arrays(np.array([4, 5, 6]), np.array([1, 2, 3]))
+divide_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
 
 """5. Create a NumPy array of the integer numbers from 1 to 5. Calculate the mean, median, and standard deviation."""
 
