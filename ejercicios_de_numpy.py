@@ -134,6 +134,7 @@ def add_arrays(arr1, arr2):
     - arr1.shape == arr2.shape
 
   Examples
+  --------
   >>> add_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
   array([5, 7, 9])
 
@@ -564,7 +565,7 @@ rainfall_data(np.array([[10, 20, 30], [40, 50, 60], [70, 80, 90]]))
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
 
 import numpy as np
-''''''
+
 def image_thresholding(image):
   '''Genera un arreglo de numpy en blanco y negro.
 
@@ -574,31 +575,10 @@ def image_thresholding(image):
     arreglo 2D de numpy de una imagen en escala de grises.
   '''
 
-  # Aplicar la umbralización binaria
-  thresholded_image = np.where(image > threshold, 255, 0)
+  binary_image = np.where(image > 128, 255, 0)
+  return binary_image
 
-  return thresholded_image
-
-# Crear una imagen de ejemplo (10x10 con valores aleatorios entre 0 y 255)
-image = np.random.randint(0, 256, (10, 10), dtype=np.uint8)
-
-# Aplicar la umbralización con threshold = 128
-threshold = 128
-binary_image = image_thresholding(image)
-
-
-# Mostrar la imagen original y la binarizada
-fig, axs = plt.subplots(1, 2, figsize=(6, 3))
-
-axs[0].imshow(image, cmap="gray")
-axs[0].set_title("Imagen Original")
-axs[0].axis("off")
-
-axs[1].imshow(binary_image, cmap="gray")
-axs[1].set_title("Imagen Umbralizada")
-axs[1].axis("off")
-
-plt.show()
+image_thresholding(np.array([[155, 20, 30], [40, 50, 60], [70, 80, 90]]))
 
 """### Fancy Indexing
 
