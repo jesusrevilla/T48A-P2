@@ -106,7 +106,10 @@ def temp_data(temps):
   mask_below_15 = temps < 15 #Condicion menor a 15 Grados celsius
   days = np.count_nonzero(mask_below_15)
 
-  return f"Temperaturas mayores a 25 grados: {temps[mask_above_25]} Dias con temperaturas menores a 15 grados: {days}"
+  response = []
+  response.append(f"Temperaturas mayores a 25 grados: {temps[mask_above_25]}")
+  response.append(f"Número de días con temperatura menor a 15 grados: {days}")
+  return response
 
 def rainfall_data(rainfall):
   mask_above_100 = rainfall > 100
