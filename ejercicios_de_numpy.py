@@ -499,21 +499,21 @@ element_wise_product(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[1, 2, 3], [4, 
 """
 
 def temp_data(temps):
-  '''Imprime las temperaturas que fueron mayores a 25 grados y el número de
-  días en los que la temperatura fue menor a 15 grados.
+    '''Imprime las temperaturas que fueron mayores a 25 grados y el número de
+    días en los que la temperatura fue menor a 15 grados.
 
-  Parameters
-  ----------
-  temps: numpy.ndarray
-    arreglo de numpy de temperaturas en Celsius.
-  '''
-  mask_above_25 = temps > 25
-  mask_below_15 = temps < 15
-  temps_above_25 = temps[mask_above_25]
-  days_below_15 = np.sum(mask_below_15)
+    Parameters
+    ----------
+    temps: numpy.ndarray
+        Arreglo de numpy de temperaturas en Celsius.
+    '''
+    # Filtrar temperaturas mayores a 25 grados
+    mayores_25 = temps[temps > 25]
+    print(f"Temperaturas mayores a 25 grados: {mayores_25}")
 
-  print(f'Temperaturas mayores a 25 grados: {temps_above_25}')
-  print(f'Número de días con temperaturas menores a 15 grados: {days_below_15}')
+    # Contar los días con temperatura menor a 15 grados
+    dias_menores_15 = np.sum(temps <= 15)
+    print(f"Número de días con temperatura menor a 15 grados: {dias_menores_15}")
 
 temp_data(np.array([10, 12, 14, 16, 18, 20, 6, 25, 30]))
 
