@@ -488,8 +488,8 @@ def subtract_broadcast(arr1, arr2):
   '''
   return arr1 - arr2
 
-arr1 = np.array([1, 2])
-arr2 = np.array([3, 4])
+arr1 = np.array([1, 2],[1, 2],[1, 2])
+arr2 = np.array([3, 4, 5], [5, 4, 9])
 subtract_broadcast(arr1, arr2).__repr__()
 
 """3. Multiply a NumPy array of shape (2, 3) by a NumPy array of shape (3, 2)."""
@@ -629,6 +629,7 @@ def matrix_diagonals(matrix):
   #print(cols)
   main_diagonal = array[np.arange(rows), np.arange(cols)]
   anti_diagonal = array[np.arange(rows), np.arange(cols - 1, -1, -1)]
+  array = np.random.randint(0, 256, size=(5, 5))
   return main_diagonal, anti_diagonal
 
 matrix_diagonals(array).__repr__()
