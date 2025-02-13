@@ -543,11 +543,14 @@ def temp_data(temps):
     count_below_15 = np.sum(temps < 15)
 
     # Usar la representación estándar de numpy, para mantener el formato exacto
-    high_temps_str = np.array2string(high_temps, separator=' ', formatter={'all': lambda x: str(x)})
+    high_temps_str = np.array2string(high_temps, separator=' ', formatter={'all': lambda x: str(x)})[1:-1]
 
     # Retornar el string con el formato exacto que espera la prueba
     return f"Temperaturas mayores a 25 grados: {high_temps_str}\nNúmero de días con temperatura menor a 15 grados: {count_below_15}"
 
+# Ejemplo de uso:
+output = temp_data(np.array([30, 35, 28, 14, 18, 7, 22, 11]))
+print(output)
 """2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
 
 def rainfall_data(rainfall):
