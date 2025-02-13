@@ -571,7 +571,7 @@ def rainfall_data(rainfall):
     # Obtener los índices de las ciudades que cumplen con la condición
     indices = np.where(cities_with_rain_above_100)[0]
 
-    # Formatear los índices para que aparezcan en el formato correcto
+    # Formatear los índices para que aparezcan en el formato correcto, sin comas ni corchetes adicionales
     indices_str = " ".join(map(str, indices))
 
     # Crear la salida en el formato exacto esperado
