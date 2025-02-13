@@ -525,17 +525,6 @@ element_wise_product(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[7, 8, 9], [10,
 """
 
 def temp_data(temps):
-  '''Imprime las temperaturas que fueron mayores a 25 grados y el número de
-  días en los que la temperatura fue menor a 15 grados.
-
-  Parameters
-  ----------
-  temps: numpy.ndarray
-    arreglo de numpy de temperaturas en Celsius.
-  '''
-  import numpy as np
-
-def temp_data(temps):
     '''Devuelve las temperaturas mayores a 25 grados y el número de
     días con temperaturas menores a 15 grados.
 
@@ -545,23 +534,20 @@ def temp_data(temps):
         arreglo de numpy de temperaturas en Celsius.
     '''
     # Máscara de temperaturas mayores a 25 grados
-  mask_above_25 = temps > 25
+    mask_above_25 = temps > 25
 
     # Filtrar las temperaturas mayores a 25 grados
-  high_temps = temps[mask_above_25]
+    high_temps = temps[mask_above_25]
 
     # Contar el número de días con temperaturas menores a 15 grados
-  count_below_15 = np.sum(temps < 15)
+    count_below_15 = np.sum(temps < 15)
 
     # Convertir el arreglo a una lista y formatearlo de manera manual
-  high_temps_str = "[" + " ".join(map(str, high_temps)) + "]"
+    high_temps_str = "[" + " ".join(map(str, high_temps)) + "]"
 
     # Retornar el string con el formato exacto que espera la prueba
-  return f"Temperaturas mayores a 25 grados: {high_temps_str}\nNúmero de días con temperatura menor a 15 grados: {count_below_15}"
+    return f"Temperaturas mayores a 25 grados: {high_temps_str}\nNúmero de días con temperatura menor a 15 grados: {count_below_15}"
 
-
-
-temp_data(np.array([12, 18, 26, 30, 10, 5, 28]))
 
 """2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
 
