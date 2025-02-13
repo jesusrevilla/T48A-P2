@@ -541,8 +541,12 @@ def temp_data(temps):
     # Contar el número de días con temperaturas menores a 15 grados
   count_below_15 = np.sum(temps < 15)
 
-    # Retornar los resultados como un string con el formato esperado por la prueba
-  return f"Temperaturas mayores a 25 grados: {high_temps}\nNúmero de días con temperatura menor a 15 grados: {count_below_15}"
+    # Convertir el arreglo de temperaturas a una lista y asegurar que no haya comillas
+  high_temps_str = np.array2string(high_temps, separator=' ')[1:-1]  # Eliminar los corchetes
+
+    # Retornar el string con el formato exacto que espera la prueba
+  return f"Temperaturas mayores a 25 grados: {high_temps_str}\nNúmero de días con temperatura menor a 15 grados: {count_below_15}"
+
 
 temp_data(np.array([12, 18, 26, 30, 10, 5, 28]))
 
