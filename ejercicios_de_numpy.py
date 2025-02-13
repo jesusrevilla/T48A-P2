@@ -621,9 +621,3 @@ def matrix_diagonals(matrix):
   main_diagonal = matrix[np.arange(5), np.arange(5)]
   anti_diagonal = matrix[np.arange(5), np.arange(4, -1, -1)]
   return main_diagonal, anti_diagonal
-
-matrix = np.arange(1, 26).reshape(5, 5)
-matrix_diagonals(matrix)
-
-import doctest
-doctest.testmod()
