@@ -1262,13 +1262,9 @@ def rainfall_data(rainfall):
   ----------
   rainfall: numpy.ndarray
     arreglo 2D de numpy de lluvia en mm y ciudades.
-
-  Examples
-  --------
-  >>> rainfall_data(np.array([[100, 200, 300], [400, 500, 600]]))
-  (array([0, 0, 1, 1, 1]), array([1, 2, 0, 1, 2]))
+    
   '''
-  return np.where(rainfall > 100)
+  print("Índices de las ciudades con más de 100 mm de lluvia:", np.where(rainfall > 100)[0])
 
 rainfall_data(np.array([[100, 200, 300], [400, 500, 600]]))
 
