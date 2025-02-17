@@ -458,11 +458,11 @@ def subtract_broadcast(arr1, arr2):
   arr2: numpy.ndarray
     arreglo de numpy de forma (2, 3).
   '''
-  arr1 = np.array([[7, 7], [8, 8], [9, 9]])
-  arr2 = np.array([[1, 2, 3], [4, 5, 6]])
+  arr1 = np.array([[7, 2], [3, 4], [5, 6]])
+  arr2 = np.array([[7, 2, 3], [4, 5, 6]])
   return arr1 - arr2.T
 
-subtract_broadcast(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[7, 7], [8, 8], [9, 9]]))
+subtract_broadcast(np.array([[7, 2], [3, 4], [5, 6]]), np.array([[7, 2, 3], [4, 5, 6]]))
 
 """3. Multiply a NumPy array of shape (2, 3) by a NumPy array of shape (3, 2)."""
 
@@ -532,8 +532,7 @@ def temp_data(temps):
   menores = np.sum(arr < 15)
   return f"Temperaturas mayores a 25 grados: {np.array2string(mayores, separator=' ')}"
 
-np.random.seed(10)
-arr = np.random.randint(0, 30, 10)
+arr = np.array([10, 15, 20, 25, 30, 35, 28, 10, 20])
 temp_data(arr)
 
 """2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
@@ -548,6 +547,8 @@ def rainfall_data(rainfall):
   '''
   city_indices = np.where(np.sum(rainfall, axis=1) > 100)[0]
   return f"Índices de las ciudades con más de 100 mm de lluvia: {np.array2string(city_indices, separator=' ')}"
+
+rainfall_data(([[10, 20, 30], [40, 50, 40], [70, 10, 10],[70,70,10],[40,40,10], [70, 80, 90],[70,10,10],[40,40,10], [70, 80, 90]]))
 
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
 
