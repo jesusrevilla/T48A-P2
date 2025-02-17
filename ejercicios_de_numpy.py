@@ -528,15 +528,11 @@ def temp_data(temps):
   temps: numpy.ndarray
     arreglo de numpy de temperaturas en Celsius.
   '''
- # Filtrar temperaturas mayores a 25 grados
-  mayores_25 = temps[temps > 25]
-  print(f"Temperaturas mayores a 25 grados: {mayores_25}")
+  mayores = temps[temps > 25]
+  menores = (temps < 15).sum()  # Otra forma de contar los valores menores a 15
+  return f"Temperaturas mayores a 25 grados: {mayores.tolist()}\nNúmero de días con temperatura menor a 15 grados: {menores}"
 
-  # Contar los días con temperatura menor a 15 grados
-  dias_menores_15 = np.sum(temps <= 15)
-  print(f"Número de días con temperatura menor a 15 grados: {dias_menores_15}")
-
-temp_data(np.array([10, 15, 10, 25, 30, 35, 40, 45, 50]))
+temp_data(np.array([10, 15, 10, 25, 30, 35, 28, 15, 10]))
 
 """2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
 
@@ -545,12 +541,19 @@ def rainfall_data(rainfall):
 
   Parameters
   ----------
-  rainfall: numpy.ndarray
-    arreglo 2D de numpy de lluvia en mm y ciudades.
-  '''
-  print("Índices de las ciudades con más de 100 mm de lluvia:", np.where(rainfall > 100)[0])
+    rainfall: numpy.ndarray
+        arreglo 2D de numpy de lluvia en mm y ciudades.
 
-rainfall_data(np.array([[100], [200], [30], [200], [30], [200], [30], [20], [300]]))
+    Returns
+    -------
+    str
+        Cadena con los índices de las ciudades que superaron los 100 mm de lluvia.
+    '''
+  city_indices = np.where(np.sum(rainfall, axis=1) > 100)[0]
+  formatted_indices = f"[{' '.join(map(str, city_indices))}]"  # Formato correcto
+  return f"Índices de las ciudades con más de 100 mm de lluvia: {formatted_indices}"
+
+rainfall_data(np.array([[100], [400], [40], [400], [40], [400], [40], [40], [400]]))
 
 # prompt: asme un array para obtener los índices [1, 3, 5, 8].
 
