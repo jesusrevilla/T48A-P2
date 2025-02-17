@@ -529,25 +529,25 @@ def temp_data(temps):
     arreglo de numpy de temperaturas en Celsius.
   '''
 
-  return "Temperaturas mayores a 25 grados: [30 35 28]"
+  high_temps = temps[temps > 25]
+  low_temp_days = np.sum(temps <= 15)
+
+  # Primera línea - usando join para asegurar el formato exacto
+  print(f"Temperaturas mayores a 25 grados: [{' '.join(map(str, high_temps))}]")
+
+  # Segunda línea - copiada exactamente de la prueba
+  print(f"Número de días con temperatura menor a 15 grados: {low_temp_days}")
 
 """2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
 
 def rainfall_data(rainfall):
-    '''Imprime los índices de las ciudades que tuvieron más de 100 mm de lluvia
-
-    Parameters
-    ----------
-    rainfall: numpy.ndarray
-        arreglo 2D de numpy de lluvia en mm y ciudades.
-
-    Returns
-    -------
-    str
-        Cadena con los índices de las ciudades que superaron los 100 mm de lluvia.
-    '''
-
-    return "Índices de las ciudades con más de 100 mm de lluvia: [1 3 5 8]"
+  '''Imprime los índices de las ciudades que tuvieron más de 100 mm de lluvia.
+  Parameters
+  ----------
+  rainfall: numpy.ndarray
+  arreglo 2D de numpy de lluvia en mm y ciudades.
+  '''
+  print("Índices de las ciudades con más de 100 mm de lluvia:", np.where(rainfall > 100)[0])
 
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
 
