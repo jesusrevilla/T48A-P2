@@ -554,6 +554,7 @@ element_wise_product(arr1, arr2)
 """
 
 def temp_data(temps):
+    
   '''Imprime las temperaturas que fueron mayores a 25 grados y el número de
   días en los que la temperatura fue menor a 15 grados.
 
@@ -573,6 +574,7 @@ temp_data(temps)
 """2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
 
 def rainfall_data(rainfall):
+    
     '''Imprime los índices de las ciudades que tuvieron más de 100 mm de lluvia.
 
     Parameters
@@ -580,7 +582,7 @@ def rainfall_data(rainfall):
     rainfall: numpy.ndarray
         Arreglo 2D de numpy donde cada fila contiene datos de una ciudad.
     '''
-    print("Índices de las ciudades con más de 100 mm de lluvia:", np.where(rainfall > 100)[0])
+   print("Índices de las ciudades con más de 100 mm de lluvia:", np.where(rainfall > 100)[0])
     
 
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
