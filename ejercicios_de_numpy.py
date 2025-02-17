@@ -477,7 +477,7 @@ def multiply_broadcast(arr1, arr2):
   '''
   arr1 = np.array([[1, 2, 3], [4, 5, 6]])
   arr2 = np.array([[7, 8], [9, 10], [11, 12]])
-  return arr1 * arr2
+  return arr1 @ arr2
 
 multiply_broadcast(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[7, 8], [9, 10], [11, 12]]))
 
@@ -609,5 +609,6 @@ print("Anti-diagonal:", anti_diag)
 
 import doctest
 doctest.testmod()
+!python -m unittest test_numpy.py
 
 """#Text"""
