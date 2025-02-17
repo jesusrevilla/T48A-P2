@@ -528,9 +528,8 @@ def temp_data(temps):
   temps: numpy.ndarray
     arreglo de numpy de temperaturas en Celsius.
   '''
-  mayores = arr[arr > 25]
-  menores = np.sum(arr < 15)
-  return f"Temperaturas mayores a 25 grados: {np.array2string(mayores, separator=' ')}"
+  mayores = temps[temps > 25]
+  return f"Temperaturas mayores a 25 grados: {list(mayores)}"
 
 arr = np.array([10, 15, 20, 25, 30, 35, 28, 10, 20])
 temp_data(arr)
@@ -546,7 +545,7 @@ def rainfall_data(rainfall):
     arreglo 2D de numpy de lluvia en mm y ciudades.
   '''
   city_indices = np.where(np.sum(rainfall, axis=1) > 100)[0]
-  return f"Índices de las ciudades con más de 100 mm de lluvia: {np.array2string(city_indices, separator=' ')}"
+  return f"Índices de las ciudades con más de 100 mm de lluvia: {list(city_indices)}"
 
 rainfall_data(([[10, 20, 30], [40, 50, 40], [70, 10, 10],[70,70,10],[40,40,10], [70, 80, 90],[70,10,10],[40,40,10], [70, 80, 90]]))
 
