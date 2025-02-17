@@ -226,10 +226,10 @@ def first_5(arr):
   ------------
     - arr.size == 10
   '''
-  np.random.seed(10)
-  arr = np.random.randint(0, 100, 10)
+  assert arr.size == 10, 'El arreglo debe tener 10 elementos'
   return arr[:5]
 
+np.random.seed(10)
 first_5(np.random.randint(0, 100, 10))
 
 """2. Create a NumPy array of 10 random integers between 0 and 100. Select the last 3 elements of the array."""
@@ -247,10 +247,10 @@ def last_3(arr):
   ------------
     - arr.size == 10
   '''
-  arr = np.random.randint(0, 100, 10)
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
   return arr[-3:]
 
+np.random.seed(10)
 last_3(np.random.randint(0, 100, 10))
 
 """3. Create a NumPy array of 10 random integers between 0 and 100. Select the elements at indices 2, 4, and 6."""
@@ -268,10 +268,11 @@ def indices_2_4_6(arr):
   ------------
     - arr.size == 10
   '''
-  arr = np.random.randint(0,100,10)
+
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
   return arr[[2,4,6]]
 
+np.random.seed(10)
 indices_2_4_6(np.random.randint(0, 100, 10))
 
 """4. Create a NumPy array of 10 random integers between 0 and 100. Select the elements with values greater than 50."""
@@ -289,10 +290,10 @@ def greater_50(arr):
   ------------
     - arr.size == 10
   '''
-  np.random.seed(10)
-  arr = np.random.randint(0,100,10)
+  assert arr.size == 10, 'El arreglo debe tener 10 elementos'
   return arr[arr >50]
 
+np.random.seed(10)
 greater_50(np.random.randint(0, 100, 10))
 
 """5. Create a NumPy array of 10 random integers between 0 and 10. Select elements less than or equal to 7."""
@@ -311,11 +312,10 @@ def less_7(arr):
     - arr.size == 10
   '''
 
-  arr = np.random.randint(0,100,10)
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
-  print(arr)
   return arr[arr <= 7]
 
+np.random.seed(10)
 less_7(np.random.randint(0, 10, 10))
 
 """### NumPy Array Reshaping
@@ -375,10 +375,11 @@ def reshape_10x10(arr):
   ------------
     - arr.size == 100
   '''
-  arr = np.random.randint(0, 100, 100)
+
   assert arr.size == 100, 'El arreglo (arr) debe tener 100 elementos'
   return arr.reshape(10, 10)
 
+np.random.seed(10)
 reshape_10x10(np.random.randint(0, 100, 100))
 
 """4. Create a NumPy array of 1000 numbers. Reshape the array into a 10x10x10 tensor."""
@@ -475,11 +476,11 @@ def multiply_broadcast(arr1, arr2):
   arr2: numpy.ndarray
     arreglo de numpy de forma (3, 2).
   '''
-  arr1 = np.array([[1, 2, 3], [4, 5, 6]])
-  arr2 = np.array([[7, 8], [9, 10], [11, 12]])
-  return arr1 @ arr2
+  return np.dot(arr1, arr2)
 
-multiply_broadcast(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[7, 8], [9, 10], [11, 12]]))
+arr1 = np.array([[1, 2, 3], [4, 5, 6]])
+arr2 = np.array([[7, 8], [9, 10], [11, 12]])
+multiply_broadcast(arr1, arr2)
 
 """4. Divide a NumPy array of shape (2, 3) by a NumPy array of shape (2, 1)."""
 
@@ -545,13 +546,8 @@ def rainfall_data(rainfall):
   rainfall: numpy.ndarray
     arreglo 2D de numpy de lluvia en mm y ciudades.
   '''
-  arr = np.array([[10, 20, 30], [40, 50, 80], [70, 80, 90]])
-  '''suma del array por linea'''
-  sum= np.sum(arr, axis=1)
-  '''contar cuantas ciudades tuvieron más de 100 mm de lluvia'''
-  city_indices = np.where(sum > 100)
-
-  return city_indices
+  city_indices = np.where(np.sum(rainfall, axis=1) >100)[0]
+  return f'Los índices de las ciudades que tuvieron más de 100 mm de lluvia son: {city_indices}'
 
 rainfall_data(np.array([[10, 20, 30], [40, 50, 60], [70, 80, 90]]))
 
@@ -567,8 +563,6 @@ def image_thresholding(image):
   image: numpy.ndarray
     arreglo 2D de numpy de una imagen en escala de grises.
   '''
-
-
   return np.where(image > 128, 255, 0)
 
 image_thresholding(np.array([[10, 20, 30], [40, 50, 60], [70, 80, 90]]))
@@ -609,5 +603,6 @@ print("Anti-diagonal:", anti_diag)
 
 import doctest
 doctest.testmod()
+!python -m unittest test_numpy.py
 
 """#Text"""
