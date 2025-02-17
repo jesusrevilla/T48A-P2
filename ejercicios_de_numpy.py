@@ -154,7 +154,7 @@ def subtract_arrays(arr1, arr2):
   '''Calcula arr2 menos arr1 (arreglos de numpy).
   '''
   assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
-  return arr2 - arr1
+  return arr1 - arr2
 
 subtract_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
 
@@ -335,11 +335,11 @@ def reshape_2x6(arr):
   ------------
     - arr.size == 12
   '''
-  arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
   assert arr.size == 12, 'El arreglo (arr) debe tener 12 elementos'
   return arr.reshape(2, 6)
 
-reshape_2x6(np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]))
+np.random.seed(10)
+reshape_2x6(np.random.randint(0, 100, 12))
 
 """2. Create a NumPy array of 24 numbers. Reshape the array into a 2x3x4 tensor."""
 
@@ -355,10 +355,10 @@ def reshape_2x3x4(arr):
   ------------
     - arr.size == 24
   '''
-  arr = np.random.randint(0, 100, 24)
   assert arr.size == 24, 'El arreglo (arr) debe tener 24 elementos'
   return arr.reshape(2, 3, 4)
 
+np.random.seed(10)
 reshape_2x3x4(np.random.randint(0, 100, 24))
 
 """3. Create a NumPy array of 100 numbers. Reshape the array into a 10x10 matrix."""
@@ -397,10 +397,10 @@ def reshape_10x10x10(arr):
   ------------
     - arr.size == 1000
   '''
-  arr = np.random.randint(0, 100, 1000)
   assert arr.size == 1000, 'El arreglo (arr) debe tener 1000 elementos'
   return arr.reshape(10, 10, 10)
 
+np.random.seed(10)
 reshape_10x10x10(np.random.randint(0, 100, 1000))
 
 """5. Create a NumPy array of 10000 numbers. Reshape the array into a 10x10x10x10 tensor."""
@@ -418,10 +418,10 @@ def reshape_10x10x10x10(arr):
   ------------
     - arr.size == 10000
   '''
-  arr = np.random.randint(0, 100, 10000)
   assert arr.size == 10000, 'El arreglo (arr) debe tener 10000 elementos'
   return arr.reshape(10, 10, 10, 10)
 
+np.random.seed(10)
 reshape_10x10x10x10(np.random.randint(0, 100, 10000))
 
 """### NumPy Array Broadcasting
@@ -460,7 +460,7 @@ def subtract_broadcast(arr1, arr2):
   '''
   arr1 = np.array([[7, 7], [8, 8], [9, 9]])
   arr2 = np.array([[1, 2, 3], [4, 5, 6]])
-  return arr1 - arr2.T
+  return arr1.T - arr2
 
 subtract_broadcast(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[7, 7], [8, 8], [9, 9]]))
 
@@ -528,11 +528,10 @@ def temp_data(temps):
   temps: numpy.ndarray
     arreglo de numpy de temperaturas en Celsius.
   '''
-  arr = np.random.randint(0, 40, 30)
-  print(arr)
+  arr = np.array(temps)
   mayores = arr[arr > 25]
   menores = np.sum(arr < 15)
-  return mayores, menores
+  return f"Temperaturas mayores a 25 grados: {np.array2string(mayores, separator=' ')}"
 
 temp_data(np.random.randint(0, 40, 30))
 
@@ -546,8 +545,8 @@ def rainfall_data(rainfall):
   rainfall: numpy.ndarray
     arreglo 2D de numpy de lluvia en mm y ciudades.
   '''
-  city_indices = np.where(np.sum(rainfall, axis=1) >100)[0]
-  return f'Los índices de las ciudades que tuvieron más de 100 mm de lluvia son: {city_indices}'
+  city_indices = np.where(np.sum(rainfall, axis=1) > 100)[0]
+  return f"Índices de las ciudades con más de 100 mm de lluvia: {np.array2string(city_indices, separator=' ')}"
 
 rainfall_data(np.array([[10, 20, 30], [40, 50, 60], [70, 80, 90]]))
 
@@ -565,7 +564,9 @@ def image_thresholding(image):
   '''
   return np.where(image > 128, 255, 0)
 
-image_thresholding(np.array([[10, 20, 30], [40, 50, 60], [70, 80, 90]]))
+np.random.seed(10)
+image = np.random.randint(0, 255, (10, 10))
+image_thresholding(image)
 
 """### Fancy Indexing
 
