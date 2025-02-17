@@ -226,9 +226,8 @@ def first_5(arr):
   ------------
     - arr.size == 10
   '''
+  np.random.seed(10)
   arr = np.random.randint(0, 100, 10)
-
-  assert arr.size == 10, 'El arreglo debe tener 10 elementos'
   return arr[:5]
 
 first_5(np.random.randint(0, 100, 10))
@@ -250,8 +249,7 @@ def last_3(arr):
   '''
   arr = np.random.randint(0, 100, 10)
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
-  print(arr)
-  return arr[3:]
+  return arr[-3:]
 
 last_3(np.random.randint(0, 100, 10))
 
@@ -272,8 +270,7 @@ def indices_2_4_6(arr):
   '''
   arr = np.random.randint(0,100,10)
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
-  print(arr)
-  return arr[[1,3,5]]
+  return arr[[2,4,6]]
 
 indices_2_4_6(np.random.randint(0, 100, 10))
 
@@ -292,12 +289,11 @@ def greater_50(arr):
   ------------
     - arr.size == 10
   '''
-  assert arr.size == 10, 'El arreglo debe tener 10 elementos'
+  np.random.seed(10)
   arr = np.random.randint(0,100,10)
-  assert arr.size == 10, 'El arreglo debe tener 10 elementos'
   return arr[arr >50]
 
-greater_50(np.random.randint(1, 100, 10))
+greater_50(np.random.randint(0, 100, 10))
 
 """5. Create a NumPy array of 10 random integers between 0 and 10. Select elements less than or equal to 7."""
 
@@ -314,8 +310,9 @@ def less_7(arr):
   ------------
     - arr.size == 10
   '''
+
   arr = np.random.randint(0,100,10)
-  assert arr.size == 10, 'El arreglo (arr) debe tener 10 elementos'
+  assert arr.size == 10, 'El arreglo debe tener 10 elementos'
   print(arr)
   return arr[arr <= 7]
 
@@ -480,7 +477,7 @@ def multiply_broadcast(arr1, arr2):
   '''
   arr1 = np.array([[1, 2, 3], [4, 5, 6]])
   arr2 = np.array([[7, 8], [9, 10], [11, 12]])
-  return np.dot(arr1, arr2)
+  return arr1 * arr2
 
 multiply_broadcast(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[7, 8], [9, 10], [11, 12]]))
 
@@ -571,10 +568,10 @@ def image_thresholding(image):
     arreglo 2D de numpy de una imagen en escala de grises.
   '''
 
-  binary_image = np.where(image > 128, 255, 0)
-  return binary_image
 
-image_thresholding(np.array([[155, 20, 30], [40, 50, 60], [70, 80, 90]]))
+  return np.where(image > 128, 255, 0)
+
+image_thresholding(np.array([[10, 20, 30], [40, 50, 60], [70, 80, 90]]))
 
 """### Fancy Indexing
 
