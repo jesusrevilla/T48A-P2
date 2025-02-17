@@ -584,24 +584,6 @@ def matrix_diagonals(matrix):
   ------------
     - matrix.shape == (5, 5)
   '''
-  assert matrix.shape == (5, 5), 'La matriz debe ser de 5x5'
-
-  # Extraer la diagonal principal
-  main_diag = matrix[np.arange(5), np.arange(5)]
-
-  # Extraer la anti-diagonal
-  anti_diag = matrix[np.arange(5), np.flip(np.arange(5))]
-
-  return main_diag, anti_diag
-
-
-matrix = np.arange(1, 26).reshape(5, 5)  # Crear una matriz 5x5 con valores del 1 al 25
-main_diag, anti_diag = matrix_diagonals(matrix)
-
-print("Diagonal principal:", main_diag)
-print("Anti-diagonal:", anti_diag)
-
-import doctest
-doctest.testmod()
+  return np.diagonal(matrix), np.fliplr(matrix).diagonal()
 
 """#Text"""
