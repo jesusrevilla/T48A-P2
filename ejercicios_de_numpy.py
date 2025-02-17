@@ -529,7 +529,8 @@ def temp_data(temps):
     arreglo de numpy de temperaturas en Celsius.
   '''
   mayores = temps[temps > 25]
-  return f"Temperaturas mayores a 25 grados: [30 35 28]"
+  formatted_mayores = " ".join(map(str, mayores))  # Convierte a string sin comas
+  return f"Temperaturas mayores a 25 grados: [{formatted_mayores}]"
 
 arr = np.array([10, 15, 20, 25, 30, 35, 28, 10, 20])
 temp_data(arr)
@@ -545,7 +546,8 @@ def rainfall_data(rainfall):
     arreglo 2D de numpy de lluvia en mm y ciudades.
   '''
   city_indices = np.where(np.sum(rainfall, axis=1) > 100)[0]
-  return f"Índices de las ciudades con más de 100 mm de lluvia: [1 3 5 8]"
+  formatted_indices = " ".join(map(str, city_indices))  # Convierte los índices a string sin comas
+  return f"Índices de las ciudades con más de 100 mm de lluvia: [{formatted_indices}]"
 
 rainfall_data(([[10, 20, 30], [40, 50, 40], [70, 10, 10],[70,70,10],[40,40,10], [70, 80, 90],[70,10,10],[40,40,10], [70, 80, 90]]))
 
