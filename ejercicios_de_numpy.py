@@ -603,6 +603,5 @@ print("Anti-diagonal:", anti_diag)
 
 import doctest
 doctest.testmod()
-!python -m unittest test_numpy.py
 
 """#Text"""
