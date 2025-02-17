@@ -582,9 +582,9 @@ def rainfall_data(rainfall):
     rainfall: numpy.ndarray
         Arreglo 2D de numpy donde cada fila contiene datos de una ciudad.
     '''
-    indices = np.argwhere(rainfall > 100)
-    indices_planos = np.ravel_multi_index((indices[:, 0], indices[:, 1]), rainfall.shape)
-    print(f"Índices de las ciudades con más de 100 mm de lluvia: {list(indices_planos)}")
+    indices = np.where(rainfall > 100)
+    indices_lineales = np.ravel_multi_index(indices, rainfall.shape)
+    print("Índices de las ciudades con más de 100 mm de lluvia:", indices_lineales)
     
 
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
