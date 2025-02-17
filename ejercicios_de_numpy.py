@@ -536,7 +536,7 @@ def temp_data(temps):
   dias_menores_15 = np.sum(temps <= 15)
   print(f"Número de días con temperatura menor a 15 grados: {dias_menores_15}")
 
-temp_data(np.array([10, 15, 20, 25, 30, 35, 40, 45, 50]))
+temp_data(np.array([10, 15, 10, 25, 30, 35, 40, 45, 50]))
 
 """2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
 
@@ -550,7 +550,29 @@ def rainfall_data(rainfall):
   '''
   print("Índices de las ciudades con más de 100 mm de lluvia:", np.where(rainfall > 100)[0])
 
-rainfall_data(np.array([[10, 20, 30], [40, 50, 60], [70, 80, 90]]))
+rainfall_data(np.array([[100], [200], [30], [200], [30], [200], [30], [20], [300]]))
+
+# prompt: asme un array para obtener los índices [1, 3, 5, 8].
+
+import numpy as np
+def indices_1_3_5_8(arr):
+  '''Regresa los elementos en los índices 1, 3, 5 y 8 de un arr (arreglo) que contiene
+  10 números enteros aleatoreos entre 0 y 100.
+
+  Parameters
+  ----------
+  arr: numpy.ndarray
+    arreglo de numpy de 10 elementos con numeros aleatorios del 1 al 100.
+
+  Precondition
+  ------------
+    - arr.size == 10
+  '''
+
+  assert arr.size == 10, 'El arreglo debe tener 10 elementos'
+  return arr[[1,3,5,8]]
+np.random.seed(10)
+indices_1_3_5_8(np.random.randint(0, 100, 10))
 
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
 
