@@ -580,17 +580,11 @@ def rainfall_data(rainfall):
   rainfall: numpy.ndarray
     arreglo 2D de numpy de lluvia en mm y ciudades.
   '''
+  indices = np.where(rainfall > 100)
+  indices_lineales = np.ravel_multi_index(indices, rainfall.shape)
+  print("Índices de las ciudades con más de 100 mm de lluvia:", indices_lineales)
 
-  return np.where(rainfall[:,0].astype(float)>100)
 
-rf = np.array([
-    [50, "a"],
-    [120, "b"],
-    [60, "c"],
-    [110, "d"],
-    [70, "e"]
-])
-rainfall_data(rf).__repr__()
 
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
 
@@ -602,9 +596,9 @@ def image_thresholding(image):
   image: numpy.ndarray
     arreglo 2D de numpy de una imagen en escala de grises.
   '''
-  image[image >= 128] = 255
-  image[image < 128] = 0
-  return image
+  threshold = 128
+  binary_image = np.where(image >= threshold, 255, 0)
+  return binary_image
 
 np.random.seed(10)
 array = np.random.randint(0, 256, size=(5, 5))
@@ -628,13 +622,10 @@ def matrix_diagonals(matrix):
     - matrix.shape == (5, 5)
   '''
   assert matrix.shape == (5, 5), 'La matriz debe ser de 5x5'
-  rows, cols = array.shape
-  #print(rows)
-  #print(cols)
-  main_diagonal = array[np.arange(rows), np.arange(cols)]
-  anti_diagonal = array[np.arange(rows), np.arange(cols - 1, -1, -1)]
+  main_diagonal = matrix[np.arange(5), np.arange(5)]
+  anti_diagonal = matrix[np.arange(5), np.arange(4, -1, -1)]
   return main_diagonal, anti_diagonal
-    
+
 np.random.seed(10)
 array = np.random.randint(0, 256, size=(5, 5))
 matrix_diagonals(array).__repr__()
