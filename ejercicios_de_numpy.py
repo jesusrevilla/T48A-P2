@@ -543,20 +543,26 @@ def temp_data(temps):
 """2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
 
 def rainfall_data(rainfall):
-  '''Imprime los índices de las ciudades que tuvieron más de 100 mm de lluvia.
-  Parameters
-  ----------
-  rainfall: numpy.ndarray
-  arreglo 2D de numpy de lluvia en mm y ciudades.
-  '''
-  arr = np.array([[10], [600], [60], [600], [60], [600], [60], [60], [600], [60]])
-  '''hacer flat'''
-  flat_rainfall = rainfall.flatten()
-  '''"Índices de las ciudades con más de 100 mm de lluvia: [1 3 5 8]"'''
-  print(f"Índices de las ciudades con más de 100 mm de lluvia: {np.where(flat_rainfall > 100)}")
-  return
+    '''Retorna los índices de las ciudades que tuvieron más de 100 mm de lluvia.
 
-rainfall_data(np.array([[10], [600], [60], [600], [60], [600], [60], [60], [600], [60]]))
+    Parameters
+    ----------
+    rainfall: numpy.ndarray
+        Arreglo 1D o 2D de numpy con datos de lluvia en mm.
+
+    Returns
+    -------
+    numpy.ndarray
+    Índices de las ciudades con más de 100 mm de lluvia.
+    '''
+    indices = np.where(rainfall > 100)[0]  # Extrae los índices donde la condición se cumple
+    return indices
+
+rainfall = np.array([10, 600, 60, 600, 60, 600, 60, 60, 600, 60])
+indices_ciudades = rainfall_data(rainfall)
+print(f"Índices de las ciudades con más de 100 mm de lluvia: {indices_ciudades}")
+
+
 
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
 
