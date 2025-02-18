@@ -28,13 +28,15 @@ def add_arrays(arr1, arr2):
   return arr1 + arr2
 
 def subtract_arrays(arr1, arr2):
+  assert arr1.shape == arr2.shape
   return arr2 - arr1
 
 def multiply_arrays(arr1, arr2):
+  assert arr1.shape == arr2.shape
   return arr1 * arr2
 
 def divide_arrays(arr1, arr2):
-  assert arr1.any(0), 'No se puede dividir por cero'
+  assert arr1.shape == arr2.shape
   return arr1 / arr2
 
 def stats(arr):
