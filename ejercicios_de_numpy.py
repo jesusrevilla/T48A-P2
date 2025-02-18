@@ -536,7 +536,7 @@ def rainfall_data(rainfall):
     
     indices = np.where(rainfall > 100)[0]
     
-    print(f"Índices de las ciudades con más de 100 mm de lluvia: {indices}")
+    print(f"Índices de las ciudades con más de 100 mm de lluvia: {np.array2string(indices, separator=' ')[1:-1]}")
 
 
 def image_thresholding(image):
