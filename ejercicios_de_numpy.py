@@ -532,8 +532,13 @@ def temp_data(temps):
     print(f"Número de días con temperatura menor a 15 grados: {dias_menores_15}")
 
 def rainfall_data(rainfall):
+    '''Imprime los índices de las ciudades que tuvieron más de 100 mm de lluvia.
+    Parameters
+    ----------
+    rainfall: numpy.ndarray
+        Arreglo 2D de numpy donde cada fila contiene datos de una ciudad.
+    '''
     print("Índices de las ciudades con más de 100 mm de lluvia:", np.where(rainfall > 100)[0])
-
 
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
 
