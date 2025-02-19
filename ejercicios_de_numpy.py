@@ -128,7 +128,6 @@ def add_arrays(arr1, arr2):
 def subtract_arrays(arr1, arr2):
   '''Calcula arr2 menos arr1 (arreglos de numpy).
   '''
-  assert arr1.shape == arr2.shape,
   return arr2 - arr1
 
 """3. Multiply two NumPy arrays together (element-wise)."""
