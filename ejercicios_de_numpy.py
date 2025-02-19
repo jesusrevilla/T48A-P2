@@ -128,7 +128,7 @@ def subtract_arrays(arr1, arr2):
   '''Calcula arr2 menos arr1 (arreglos de numpy).
   '''
   assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
-  return arr2 - arr1
+  return arr1 - arr2
     
 """3. Multiply two NumPy arrays together (element-wise)."""
 
@@ -463,8 +463,8 @@ def rainfall_data(rainfall):
   rainfall: numpy.ndarray
     arreglo 2D de numpy de lluvia en mm y ciudades.
   '''
-  return np.where(rainfall > 100)[0]  # Obtener los índices únicos de las filas
-
+  print("Índices de las ciudades con más de 100 mm de lluvia:", np.where(rainfall > 100)[0])
+    
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
 
 def image_thresholding(image, threshold=128):
