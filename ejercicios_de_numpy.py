@@ -464,6 +464,7 @@ def rainfall_data(rainfall):
   ----------
   rainfall: numpy.ndarray
     arreglo 2D de numpy de lluvia en mm y ciudades.
+    
   '''
   ciudades = np.any(rainfall > 100, axis=1)
   indices = np.where(ciudades)[0]
