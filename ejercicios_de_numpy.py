@@ -486,10 +486,7 @@ def subtract_broadcast(arr1, arr2):
   arr2: numpy.ndarray
     arreglo de numpy de forma (2, 3).
   '''
-  arr1_reshaped = arr1[:2, :].reshape(2, 1, 2)
-  arr1_reshaped = arr1_reshaped + np.zeros((2,3,1), dtype=int)
-  arr1_reshaped = arr1_reshaped.reshape(2,3,2)[:, :, 0]
-  return arr2 - arr1_reshaped
+  return arr1 - arr2.T
 
 arr1 = np.array([[1, 2],[3, 2],[5, 2]])
 arr2 = np.array([[3, 4, 5], [5, 4, 9]])
@@ -563,8 +560,11 @@ def temp_data(temps):
   temps: numpy.ndarray
     arreglo de numpy de temperaturas en Celsius.
   '''
+  #print("Temperaturas mayores a 25 grados: ", temps[temps>25])
 
-  return temps[temps>25],len(temps[temps<15])
+  #return temps[temps>25],len(temps[temps<15])
+
+  return print("Temperaturas mayores a 25 grados: ", temps[temps>25])
 
 arr = np.array([10, 15, 20, 25, 30])
 temp_data(arr).__repr__()
