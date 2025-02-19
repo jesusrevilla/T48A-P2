@@ -127,7 +127,8 @@ def add_arrays(arr1, arr2):
 def subtract_arrays(arr1, arr2):
   '''Calcula arr2 menos arr1 (arreglos de numpy).
   '''
-  return arr2 - arr1
+  assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
+  return arr1 - arr2
 
 """3. Multiply two NumPy arrays together (element-wise)."""
 
@@ -447,9 +448,10 @@ def temp_data(temps):
   temps: numpy.ndarray
     arreglo de numpy de temperaturas en Celsius.
   '''
-  above_25 = (temps > 25)
-  below_15 = (temps < 15)
-  return (temps[above_25], len(temps[below_15]))
+  mayores_25 = temps[temps > 25]
+  print(f"Temperaturas mayores a 25 grados: {mayores_25}")
+  dias_menores_15 = np.sum(temps < 15)
+  print(f"Número de días con temperatura menor a 15 grados: {dias_menores_15}")
 
 """2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
 
@@ -461,9 +463,7 @@ def rainfall_data(rainfall):
   rainfall: numpy.ndarray
     arreglo 2D de numpy de lluvia en mm y ciudades.
   '''
-  exceeded_100 = (rainfall[0].astype(int) > 100)
-
-  return rainfall[1, exceeded_100]
+  print("Índices de las ciudades con más de 100 mm de lluvia:", np.where(rainfall > 100)[0])
 
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
 
