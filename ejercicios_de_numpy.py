@@ -498,6 +498,4 @@ def matrix_diagonals(matrix):
     - matrix.shape == (5, 5)
   '''
   assert matrix.shape == (5, 5), 'La matriz debe ser de 5x5'
-  diagonal = matrix[np.arange(5), np.arange(5)]
-  anti_diagonal = matrix[np.arange(5), np.arange(4, -1, -1)]
-  return (diagonal, anti_diagonal)
+  return np.diagonal(matrix), np.fliplr(matrix).diagonal()
