@@ -478,6 +478,7 @@ def image_thresholding(image):
   ----------
   image: numpy.ndarray
     arreglo 2D de numpy de una imagen en escala de grises.
+    
   '''
   return np.where(image >= 128, 255, 0)
 
