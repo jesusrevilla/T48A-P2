@@ -495,8 +495,3 @@ def matrix_diagonals(matrix):
     - matrix.shape == (5, 5)
   '''
   return np.diagonal(matrix), np.fliplr(matrix).diagonal()
-
-"""# Test"""
-
-import doctest
-doctest.testmod()
