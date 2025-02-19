@@ -34,7 +34,7 @@ def rand_int():
   >>> rand_int()
   array([ 9, 15, 64, 28, 89, 93, 29,  8, 73,  0])
   '''
-  return np.random.randint(0, 100, 10)
+  return np.random.randint(0, 101, size=10)
 
 """2. Create a NumPy array of 5 random floating-point numbers between 0 and 1."""
 
@@ -54,6 +54,7 @@ def rand_float():
   >>> rand_float()
   array([0.77132064, 0.02075195, 0.63364823, 0.74880388, 0.49850701])
   '''
+  np.random.seed(10)
   return np.random.rand(5)
 
 """3. Create a NumPy array of the first 10 prime numbers."""
