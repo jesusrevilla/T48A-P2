@@ -532,11 +532,16 @@ def temp_data(temps):
     print(f"Número de días con temperatura menor a 15 grados: {dias_menores_15}")
 
 def rainfall_data(rainfall):
-    '''Imprime los índices de las ciudades que tuvieron más de 100 mm de lluvia.'''
-    
-    indices = np.where(rainfall > 100)[0]
-    
-    print(f"Índices de las ciudades con más de 100 mm de lluvia: {np.array2string(indices, separator=' ')[1:-1]}")
+  rainfall_flat = rainfall.flatten()  # Convierte cualquier matriz en un array 1D
+  indices = np.where(rainfall_flat > 100)[0]  # Encuentra índices de lluvia > 100 mm
+  indices = list(map(int, indices))  # Convierte np.int64 a enteros normales
+
+  indices_str = str(indices).replace(',', '')  # Formato esperado en la prueba
+  print(f"Índices de las ciudades con más de 100 mm de lluvia: {indices_str}")
+
+  return rainfall_matrix = np.array([[10, 600], [60, 600], [60, 600], [60, 60], [600, 60]])
+
+rainfall_data(rainfall_matrix)
 
 
 def image_thresholding(image):
