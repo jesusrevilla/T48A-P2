@@ -539,8 +539,9 @@ def rainfall_data(rainfall):
   indices_str = str(indices).replace(',', '')  # Formato esperado en la prueba
   print(f"Índices de las ciudades con más de 100 mm de lluvia: {indices_str}")
 
-  return rainfall_matrix = np.array([[10, 600], [60, 600], [60, 600], [60, 60], [600, 60]])
-
+  return 
+    
+rainfall_matrix = np.array([[10, 600], [60, 600], [60, 600], [60, 60], [600, 60]])
 rainfall_data(rainfall_matrix)
 
 
