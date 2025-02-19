@@ -193,10 +193,10 @@ def divide_arrays(arr1, arr2):
   ------------
     - arr2.any(0)
   '''
-  assert arr1.any(0), 'No se puede dividir por cero'
-  for i in range(len(arr1)):
-    arr1[i] /= arr2[i]
-  return arr1
+  assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
+  assert np.all(arr1 != 0), 'No se puede dividir por cero'
+
+  return arr1 / arr2
 
 arr1 = np.array([1, 2, 3])
 arr2 = np.array([4, 5, 6])
@@ -564,7 +564,10 @@ def temp_data(temps):
 
   #return temps[temps>25],len(temps[temps<15])
 
-  return print("Temperaturas mayores a 25 grados: ", temps[temps>25])
+  high_temps = temps[temps > 25]
+  print(f"Temperaturas mayores a 25 grados: {high_temps}")
+  low_temps_count = np.sum(temps < 15)
+  print(f"Número de días con temperatura menor a 15 grados: {low_temps_count}")
 
 arr = np.array([10, 15, 20, 25, 30])
 temp_data(arr).__repr__()
