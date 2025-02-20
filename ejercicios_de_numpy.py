@@ -54,7 +54,6 @@ def rand_float():
   >>> rand_float()
   array([0.77132064, 0.02075195, 0.63364823, 0.74880388, 0.49850701])
   '''
-  np.random.seed(10)
   return np.random.rand(5)
 
 """3. Create a NumPy array of the first 10 prime numbers."""
@@ -473,7 +472,7 @@ def image_thresholding(image, threshold=128):
     arreglo 2D de numpy de una imagen en escala de grises.
   '''
   binary_image = np.where(image >= threshold, 255, 0)
-    return binary_image
+  return binary_image
 
 """### Fancy Indexing
 
@@ -492,4 +491,5 @@ def matrix_diagonals(matrix):
   ------------
     - matrix.shape == (5, 5)
   '''
+  matrix.shape == (5, 5)
   return np.diagonal(matrix), np.fliplr(matrix).diagonal()
