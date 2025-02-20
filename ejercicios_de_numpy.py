@@ -119,8 +119,7 @@ def rainfall_data(rainfall):
   rainfall: numpy.ndarray
     arreglo 2D de numpy de lluvia en mm y ciudades.
   '''
-  exceeded_100 = (rainfall[0].astype(int) > 100)
-  return rainfall[1, exceeded_100]
+  print("Índices de las ciudades con más de 100 mm de lluvia: ", np.where(rainfall > 100)[0])
  
 def image_thresholding(image, threshold=128):
     binary_image = np.where(image >= threshold, 255, 0)
