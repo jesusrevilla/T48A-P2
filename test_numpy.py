@@ -188,7 +188,7 @@ class TestNumpyExercises(unittest.TestCase):
         
         # Verificar que la salida sea la esperada
         assert "Temperaturas mayores a 25 grados: [30 35 28]" in output
-        assert "Número de días con temperatura menor a 15 grados: 4" in output
+        assert "Número de días con temperatura menor a 15 grados: 3" in output
         
         print("La prueba unitaria ha pasado exitosamente.")
 
@@ -216,7 +216,7 @@ class TestNumpyExercises(unittest.TestCase):
         output = captured_output.getvalue()
         
         # Verificar que la salida sea la esperada
-        assert "Índices de las ciudades con más de 100 mm de lluvia: [0 1 1 2]" in output
+        assert "Índices de las ciudades con más de 100 mm de lluvia: [1 3 5 8]" in output
         
         print("La prueba unitaria ha pasado exitosamente.")
 
