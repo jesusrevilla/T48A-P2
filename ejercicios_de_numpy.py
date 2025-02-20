@@ -34,7 +34,7 @@ def rand_int():
   >>> rand_int()
   array([ 9, 15, 64, 28, 89, 93, 29,  8, 73,  0])
   '''
-  return np.random.randint(0, 101, size=10)
+  return np.random.randint(0, 101, 10)
 
 """2. Create a NumPy array of 5 random floating-point numbers between 0 and 1."""
 
@@ -128,6 +128,7 @@ def add_arrays(arr1, arr2):
 def subtract_arrays(arr1, arr2):
   '''Calcula arr2 menos arr1 (arreglos de numpy).
   '''
+  assert arr1.shape == arr2.shape,
   return arr2 - arr1
 
 """3. Multiply two NumPy arrays together (element-wise)."""
@@ -172,8 +173,6 @@ def stats(arr):
   '''
   assert arr.size == 5, 'El arreglo debe tener 5 elementos'
   return (np.mean(arr), np.median(arr), np.std(arr))
-
-stats(np.array([1, 2, 3, 4, 5]))
 
 """### NumPy Array Indexing and Slicing
 
