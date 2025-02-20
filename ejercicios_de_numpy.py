@@ -101,7 +101,7 @@ def temp_data(temps):
     print(f"Número de días con temperatura menor a 15 grados: {dias_menores_15}")
 
 def rainfall_data(rainfall):
-    print("Índices de las ciudades con más de 100 mm de lluvia:", np.where(rainfall > 100)[0])
+    print("Índices de las ciudades con más de 100 mm de lluvia: ", np.where(rainfall > 100)[0])
 
 def image_thresholding(image, threshold=128):
     binary_image = np.where(image >= threshold, 255, 0)
