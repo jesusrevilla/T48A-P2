@@ -3,6 +3,7 @@ import numpy as np
 def rand_int():
     return np.random.randint(0, 101, size=10)
 
+
 def rand_float():
     np.random.seed(10)
     return np.random.rand(5)
