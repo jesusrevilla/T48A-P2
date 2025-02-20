@@ -491,5 +491,5 @@ def matrix_diagonals(matrix):
   ------------
     - matrix.shape == (5, 5)
   '''
-  matrix.shape == (5, 5)
+  assert matrix.shape == (5, 5)
   return np.diagonal(matrix), np.fliplr(matrix).diagonal()
