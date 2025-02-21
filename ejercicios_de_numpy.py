@@ -500,10 +500,10 @@ def temp_data(temps):
   temps: numpy.ndarray
     arreglo de numpy de temperaturas en Celsius.
   '''
-  mask_above_25 = temps > 25
-  mask_below_15 = temps < 15
-  print(temps[mask_above_25])
-  print(temps[mask_below_15])
+  mayor_a_25 = temps[temps > 25]
+  dias_menores_a_15 = np.sum(temps < 15)
+  print(f'Temperaturas mayores a 25 grados: {mayor_a_25}')
+  print(f'Número de días con temperatura menor a 15 grados: {dias_menores_a_15}')
 
 temp_data(np.array([10, 15, 20, 25, 30, 35, 40]))
 
