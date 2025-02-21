@@ -524,7 +524,7 @@ def rainfall_data(rainfall):
   i_str = str(i).replace(',', '') #el formato esperado no requiere ',' por eso las eliminamos
   print(f'Indices de las ciudades con más de 100mm de lluvia: {i_str}')
 
-rainfall_data(np.array([[110, 20], [50, 600], [800, 90], [500, 40], [70, 900]]))
+rainfall_data(np.array([[10, 900], [60, 400], [60, 110], [60, 40], [200, 90]]))
 
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
 
