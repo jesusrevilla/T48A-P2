@@ -522,7 +522,7 @@ def rainfall_data(rainfall):
   i = list(map(int, i)) #pasa los datos a enteros normales
 
   i_str = str(i).replace(',', '') #el formato esperado no requiere ',' por eso las eliminamos
-  print(f'Indices de las ciudades con más de 100mm de lluvia: {i_str}')
+  print(f'Índices de las ciudades con más de 100 mm de lluvia: {i_str}')
 
 rainfall_data(np.array([[10, 900], [60, 400], [60, 110], [60, 40], [200, 90]]))
 
