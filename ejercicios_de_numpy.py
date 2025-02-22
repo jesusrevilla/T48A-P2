@@ -115,6 +115,24 @@ def temp_data(temps):
     print("Temperaturas mayores a 25 grados:", temps[temps > 25])
     print("Número de días con temperatura menor a 15 grados:", np.sum(temps < 15))
 
+def test_rainfall_data(self):
+    rainfall = np.array([
+        [10, 20, 30],  # Ciudad 0
+        [150, 90, 80],  # Ciudad 1 (lluvia > 100 mm)
+        [5, 8, 12],  # Ciudad 2
+        [200, 50, 70],  # Ciudad 3 (lluvia > 100 mm)
+        [7, 14, 21],  # Ciudad 4
+        [110, 120, 130],  # Ciudad 5 (lluvia > 100 mm)
+        [4, 3, 2],  # Ciudad 6
+        [99, 98, 97],  # Ciudad 7
+        [101, 102, 103]  # Ciudad 8 (lluvia > 100 mm)
+    ])
+    
+    result = rainfall_data(rainfall)  # Capturamos el retorno en lugar de capturar print()
+    expected = "Índices de las ciudades con más de 100 mm de lluvia: [1 3 5 8]"
+    self.assertEqual(result, expected)  # Comparación exacta
+
+
 def rainfall_data(rainfall):
     '''Imprime los índices de las ciudades que tuvieron más de 100 mm de lluvia.
 
