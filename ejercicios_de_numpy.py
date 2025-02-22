@@ -37,8 +37,10 @@ def multiply_arrays(arr1, arr2):
     return arr2 * arr1
 
 def divide_arrays(arr1, arr2):
+    '''Divide arr2 entre arr1.'''
     assert not np.any(arr1 == 0), 'No se puede dividir por cero'
-    return arr2 / arr1
+    return arr2 / arr1  # Se invierte el orden
+
 
 # Estadísticas básicas
 def stats(arr):
@@ -92,14 +94,17 @@ def add_broadcast(arr1, arr2):
     return arr1 + arr2
 
 def subtract_broadcast(arr1, arr2):
-    '''Realiza la resta entre dos arrays utilizando broadcasting en NumPy.'''
-    return arr1 - arr2
+    '''Realiza la resta entre dos arrays utilizando broadcasting.'''
+    return arr1 - arr2.T  # Transponemos `arr2` para igualar las dimensiones
+
 
 def divide_broadcast(arr1, arr2):
     return arr1 / arr2
 
 def multiply_broadcast(arr1, arr2):
-    return arr1 * arr2
+    '''Multiplica dos arreglos de numpy con formas compatibles para broadcasting.'''
+    return arr1 * arr2.T  # Transponer `arr2` para igualar las dimensiones
+
 
 def element_wise_product(arr1, arr2):
     return arr1 * arr2
@@ -110,7 +115,10 @@ def temp_data(temps):
     print("Número de días con temperatura menor a 15 grados:", np.sum(temps < 15))
 
 def rainfall_data(rainfall):
-    print("Ciudades con más de 100 mm de lluvia:", np.where(np.any(rainfall > 100, axis=1)))
+    '''Encuentra las ciudades donde la lluvia fue mayor a 100 mm en algún mes.'''
+    indices = np.where(np.any(rainfall > 100, axis=1))[0]  # Se agrega [0] para obtener los índices de filas
+    print(f"Índices de las ciudades con más de 100 mm de lluvia: {indices}")
+
 
 # Umbralización de imágenes
 def image_thresholding(image):
@@ -126,5 +134,6 @@ def matrix_diagonals(matrix):
 # Pruebas
 import doctest
 doctest.testmod()
+
 
 
