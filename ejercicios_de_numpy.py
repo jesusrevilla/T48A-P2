@@ -118,9 +118,9 @@ def temp_data(temps):
 def rainfall_data(rainfall):
     '''Encuentra las ciudades donde la lluvia fue mayor a 100 mm en algún mes.'''
     indices = np.where(np.any(rainfall > 100, axis=1))[0]  # Se obtiene solo los índices de filas
-    formatted_indices = " ".join(map(str, indices))  # Convertimos los índices en string sin comas
-    output_string = f"Índices de las ciudades con más de 100 mm de lluvia: [{formatted_indices}]"
-    print(output_string)  # Imprimimos exactamente lo que el test espera
+    formatted_indices = " ".join(map(str, indices))  # Convierte la lista en string sin comas
+    return f"Índices de las ciudades con más de 100 mm de lluvia: [{formatted_indices}]"
+
 
 
 
