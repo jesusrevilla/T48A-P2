@@ -134,7 +134,8 @@ def test_rainfall_data(self):
 
 def rainfall_data(rainfall):
     city_indices = np.where(np.any(rainfall > 100, axis=1))[0]  # Seleccionamos filas donde haya >100 mm
-    formatted_indices = " ".join(map(str, city_indices))  # Convertimos la lista en string sin comas y con espacios correctos
+    formatted_indices = " ".join(map(str, city_indices))  # Convertimos a string sin comas
+
     return f"Índices de las ciudades con más de 100 mm de lluvia: [{formatted_indices}]"
 
 
