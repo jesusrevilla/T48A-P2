@@ -37,9 +37,10 @@ def multiply_arrays(arr1, arr2):
     return arr2 * arr1
 
 def divide_arrays(arr1, arr2):
-    '''Divide arr2 entre arr1.'''
-    assert not np.any(arr1 == 0), 'No se puede dividir por cero'
-    return arr2 / arr1  # Se invierte el orden
+    '''Divide arr1 entre arr2.'''
+    assert not np.any(arr2 == 0), 'No se puede dividir por cero'
+    return arr1 / arr2  # Se asegura que arr1 se divide por arr2
+
 
 
 # Estadísticas básicas
@@ -102,8 +103,8 @@ def divide_broadcast(arr1, arr2):
     return arr1 / arr2
 
 def multiply_broadcast(arr1, arr2):
-    '''Multiplica dos arreglos de numpy con formas compatibles para broadcasting.'''
-    return arr1 * arr2.T  # Transponer `arr2` para igualar las dimensiones
+    '''Realiza el producto matricial de dos arreglos de numpy con broadcasting.'''
+    return arr1 @ arr2  # Usamos producto de matrices
 
 
 def element_wise_product(arr1, arr2):
@@ -116,8 +117,8 @@ def temp_data(temps):
 
 def rainfall_data(rainfall):
     '''Encuentra las ciudades donde la lluvia fue mayor a 100 mm en algún mes.'''
-    indices = np.where(np.any(rainfall > 100, axis=1))[0]  # Se agrega [0] para obtener los índices de filas
-    print(f"Índices de las ciudades con más de 100 mm de lluvia: {indices}")
+    indices = np.where(np.any(rainfall > 100, axis=1))[0]  # Se obtiene solo los índices de filas
+    print(f"Índices de las ciudades con más de 100 mm de lluvia: {' '.join(map(str, indices))}")  # Formato correcto
 
 
 # Umbralización de imágenes
