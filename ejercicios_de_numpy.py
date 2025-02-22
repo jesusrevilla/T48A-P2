@@ -28,7 +28,7 @@ def add_arrays(arr1, arr2):
     assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
     return arr1 + arr2
 
-def subtract_broadcast(arr1, arr2):
+def subtract_arrays(arr1, arr2):
     '''Realiza una resta usando broadcasting en numpy.'''
     return arr1 - arr2
 
@@ -119,4 +119,3 @@ def matrix_diagonals(matrix):
 # Pruebas
 import doctest
 doctest.testmod()
-
