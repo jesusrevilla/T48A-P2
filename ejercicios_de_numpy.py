@@ -132,20 +132,11 @@ def test_rainfall_data(self):
     expected = "Índices de las ciudades con más de 100 mm de lluvia: [1 3 5 8]"
     self.assertEqual(result, expected)  # Comparación exacta
 
-
 def rainfall_data(rainfall):
-    '''Imprime los índices de las ciudades que tuvieron más de 100 mm de lluvia.
-
-    Parameters
-    ----------
-    rainfall : numpy.ndarray
-        Arreglo 2D de numpy que representa la lluvia en mm para diferentes ciudades.
-    '''
     city_indices = np.where(np.any(rainfall > 100, axis=1))[0]  # Seleccionamos filas donde haya >100 mm
-    formatted_indices = " ".join(map(str, city_indices))  # Convertimos la lista en string sin comas
-    output_string = f"Índices de las ciudades con más de 100 mm de lluvia: [{formatted_indices}]"
-    print(output_string)
-    return output_string  # Retorna la cadena para que el test pueda validarla
+    formatted_indices = " ".join(map(str, city_indices))  # Convertimos la lista en string sin comas y con espacios correctos
+    return f"Índices de las ciudades con más de 100 mm de lluvia: [{formatted_indices}]"
+
 
 
 
