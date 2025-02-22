@@ -118,7 +118,8 @@ def temp_data(temps):
 def rainfall_data(rainfall):
     '''Encuentra las ciudades donde la lluvia fue mayor a 100 mm en algún mes.'''
     indices = np.where(np.any(rainfall > 100, axis=1))[0]  # Se obtiene solo los índices de filas
-    print(f"Índices de las ciudades con más de 100 mm de lluvia: {' '.join(map(str, indices))}")  # Formato correcto
+    print(f"Índices de las ciudades con más de 100 mm de lluvia: [{ ' '.join(map(str, indices)) }]")  # Formato correcto
+
 
 
 # Umbralización de imágenes
