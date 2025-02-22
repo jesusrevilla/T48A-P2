@@ -1,6 +1,6 @@
 import numpy as np
 
-# 1. Crear un array de 10 enteros aleatorios entre 0 y 100
+# 1. Crear un array de 10 enteros aleatorios entre 0 y 100br
 def rand_int():
     np.random.seed(10)
     return np.random.randint(0, 100, 10)
@@ -91,6 +91,10 @@ def reshape_10x10x10x10(arr):
 def add_broadcast(arr1, arr2):
     return arr1 + arr2
 
+def subtract_broadcast(arr1, arr2):
+    '''Realiza la resta entre dos arrays utilizando broadcasting en NumPy.'''
+    return arr1 - arr2
+
 def divide_broadcast(arr1, arr2):
     return arr1 / arr2
 
@@ -119,4 +123,5 @@ def matrix_diagonals(matrix):
 # Pruebas
 import doctest
 doctest.testmod()
+
 
