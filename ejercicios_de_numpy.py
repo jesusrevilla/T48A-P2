@@ -98,6 +98,9 @@ def subtract_broadcast(arr1, arr2):
 def divide_broadcast(arr1, arr2):
     return arr1 / arr2
 
+def multiply_broadcast(arr1, arr2):
+    return arr1 * arr2
+
 def element_wise_product(arr1, arr2):
     return arr1 * arr2
 
