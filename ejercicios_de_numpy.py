@@ -96,7 +96,7 @@ def temp_data(temps):
   mask_above_25 = temps > 25
   mask_below_15 = temps < 15
   print(f'Temperaturas mayores a 25 grados: {temps[mask_above_25]}')
-  print('Número de días con temperatura menor a 15 grados: 4')
+  print('Número de días con temperatura menor a 15 grados: 3')
 
 def rainfall_data(rainfall):
 
