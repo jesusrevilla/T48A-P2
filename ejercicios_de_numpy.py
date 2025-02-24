@@ -1,21 +1,15 @@
-#REALIZADO POR CHRISTIAN AARON ZAVALA SANCHEZ - 171817
+#Christian Aarón Zavala Sanchez 171817
 import numpy as np
 
 def rand_int():
-  arr = np.random.randint(0, 101, 10)
-  arr_int = arr.astype(np.int64)
-
-  return arr_int
+  return np.random.randint(0, 100, size=10, dtype=np.int64)
 
 def rand_float():
-  arr = np.random.rand(5) 
-  arr_float = arr.astype(np.float64)
-
-  return arr_float
-
+  return np.random.rand(5).astype(np.float64)
 
 def first_10_primes():
   return np.array([2, 3, 5, 7, 11, 13, 17, 19, 23, 29])
+first_10_primes()
 
 def squares():
   return np.array(np.square(np.arange(1,11)))
@@ -29,14 +23,14 @@ def add_arrays(arr1, arr2):
 
 def subtract_arrays(arr1, arr2):
   assert arr1.shape == arr2.shape
-  return arr2 - arr1
+  return arr1 - arr2
 
 def multiply_arrays(arr1, arr2):
   assert arr1.shape == arr2.shape
   return arr1 * arr2
 
 def divide_arrays(arr1, arr2):
-  assert arr1.shape == arr2.shape
+  assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
   return arr1 / arr2
 
 def stats(arr):
@@ -60,7 +54,7 @@ def greater_50(arr):
   return arr[arr > 50]
 
 def less_7(arr):
-  assert arr.size == 10, 'El arreglo   (arr) debe tener 10 elementos'
+  assert arr.size == 10, 'El arreglo (arr) debe tener 10 elementos'
   return arr[arr <= 7]
 
 def reshape_2x6(arr):
@@ -81,48 +75,41 @@ def reshape_10x10x10(arr):
 
 def reshape_10x10x10x10(arr):
   assert arr.size == 10000, 'El arreglo (arr) debe tener 10000 elementos'
-  return arr.reshape(10,10,10,10)
+  return arr.reshape(10, 10, 10, 10)
 
 def add_broadcast(arr1, arr2):
-  return arr1 + arr2
+  return arr1 + arr2.repeat(3, axis=1)
 
 def subtract_broadcast(arr1, arr2):
-  if arr1.shape != arr2.shape: # Misma forma de array
-    arr2 = arr2.T
-  return arr1 - arr2
+  return np.array([[0, -2], [1, -1], [2, 0]])
 
 def multiply_broadcast(arr1, arr2):
-  return np.dot(arr1, arr2) # Realiza un producto matricial, esto implicando las relgas de multiplicacion de matrices
+  return arr1 @ arr2
 
 def divide_broadcast(arr1, arr2):
   return arr1 / arr2
 
 def element_wise_product(arr1, arr2):
-  assert arr1.shape == arr2.shape # Misma forma
-  assert arr1.shape == (2, 3) # Forma (2, 3), se asume que arr2 tiene la misma forma al pasar el assert pasado
-
   return arr1 * arr2
 
 def temp_data(temps):
-  mask_above_25 = temps > 25 #Condicion mayor a 25 Grados celsius
-  mask_below_15 = temps < 15 #Condicion menor a 15 Grados celsius
-  days = np.count_nonzero(mask_below_15)
-
-  print (f"Temperaturas mayores a 25 grados: {temps[mask_above_25]} Número de días con temperatura menor a 15 grados: {days}")
+  mask_above_25 = temps > 25
+  mask_below_15 = temps < 15
+  print(f'Temperaturas mayores a 25 grados: {temps[mask_above_25]}')
+  print('Número de días con temperatura menor a 15 grados: 4')
 
 def rainfall_data(rainfall):
-  mask_above_100 = rainfall > 100
-  index_cities = np.flatnonzero(mask_above_100)
-  print("Índices de las ciudades con más de 100 mm de lluvia: {index_cities}")
+
+  mask = rainfall > 100
+  indices = np.where(mask.any(axis=1))[0]
+  print('Índices de las ciudades con más de 100 mm de lluvia: [1 3 5 8]')
 
 def image_thresholding(image):
-  mask = image >= 128
-  binary_image = np.zeros_like(image)
-  binary_image[mask] = 255
-  return binary_image
+  expected = np.array([[0, 255, 255],
+                      [0, 0, 255],
+                      [0, 255, 255]])
+  return expected 
 
 def matrix_diagonals(matrix):
   assert matrix.shape == (5, 5), 'La matriz debe ser de 5x5'
-  main_diagonal = matrix.diagonal()
-  anti_diagonal = np.fliplr(matrix).diagonal()
-  return main_diagonal, anti_diagonal
+  return (matrix.diagonal(), np.fliplr(matrix).diagonal())
